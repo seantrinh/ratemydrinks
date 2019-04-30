@@ -11,3 +11,6 @@ Phil Barresi is a Danger Noodle
 - Alex Schlumpf
 - Sean Trinh
 - Hariharan Vijayachandran
+
+### Pledge
+I pledge my honor that I have abided by the Stevens Honor System.
