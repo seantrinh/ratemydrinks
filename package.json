@@ -1,0 +1,20 @@
+{
+  "name": "ratemydrinks",
+  "version": "1.0.0",
+  "description": "Rate My Drinks!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seantrinh/ratemydrinks.git"
+  },
+  "author": "CHan, VLee, ASchlumpf, STrinh, HVijayachandran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seantrinh/ratemydrinks/issues"
+  },
+  "homepage": "https://github.com/seantrinh/ratemydrinks#readme"
+}
