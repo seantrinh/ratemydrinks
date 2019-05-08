@@ -8,5 +8,6 @@ module.exports = {
 		//	etc.
 		//find a list of length x of drinks that
 		//match those search results
+		// return beverage objects
 	}
 }
