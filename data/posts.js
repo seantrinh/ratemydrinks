@@ -6,8 +6,6 @@ const fs = require('fs').promises;
 //Post modules
 // Relies on beverage implementation of updateRating, the rest is super simple and has been tested
 module.exports = {
-	
-
     // the photo path is supposed to be handled in the route for post
     //https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
     //https://medium.com/@nitinpatel_20236/image-upload-via-nodejs-server-3fe7d3faa642
@@ -73,13 +71,22 @@ module.exports = {
         return true;
     },
     
+    async getPostsWithUser(user_id){
+        const postCollection = await posts();
+        if (name === undefined){
+            throw 'Error: no name provided';
+        }
+        let ret = await postCollection.find({author_id:user_id}).toArray();
+        return ret;
+    },
+
     // Load all posts with beverage name
     async getPostsWithBeverageName(name){
         const postCollection = await posts();
         if (name === undefined){
             throw 'Error: no name provided';
         }
-        let ret = postCollection.find({beverage_id:name}).toArray();
+        let ret = await postCollection.find({beverage_id:name}).toArray();
         return  ret;
     }
 }
