@@ -1,4 +1,7 @@
-
+const login = require("./login");
+const signup = require("./signup");
+const logout = require("./logout");
+const login_signup  = require("./login_signup");
 const index = app=>{
 	function logging (req,res,next){
 		let usr = null;
@@ -12,9 +15,15 @@ const index = app=>{
 		next();
 	}
 	app.use(logging);
+	app.use('/login_signup',login_signup)
+	app.use('/login',login);
+	app.use('/logout',logout);
+	app.use('/signup',signup);
+	
 	app.get("*",(req,res)=>{
 		res.status(404).send("Page not Found");;
 	});
+
 }
 
 

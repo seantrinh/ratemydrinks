@@ -25,7 +25,7 @@ const createAccount = async function createAccount(email, screen_name,bio, passw
 		var obj = await create_obj(email,screen_name,bio,password);
 		const insertInfo = await acc.insertOne(obj);
 			if(insertInfo.insertedCount==0){
-				throw "Could not add animal";
+				throw "Could not add user";
 			}
 		
 

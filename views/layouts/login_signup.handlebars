@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+</head>
+
+<body>
+    <h1>RateMyDrinks</h1>
+    <main>
+       
+        <form id = "login-form" action = "/login" method = "post">
+            
+            <table>
+                <tr>
+                    <th>
+                        <label for="userName">Username: </label>
+                    </th>
+                    <th>
+                        <label for="userPassword">Password: </label>
+                    </th>
+                
+                    <th>
+                    
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="username"  id = "userName" required>
+                    </td>
+                    <td>
+                        <input type="password" name="password"  id = "userPassword" required>
+                    </td>
+                    <td>
+                        <input type="submit" value="Login" id = "submit" ><br>
+                    </td>
+                    
+                        <td>{{login_error}}</td>
+                    
+                </tr>
+             </table>
+       </form>
+    </main>
+    <div>
+        <h1>New User? Signup!</h1>
+        <form id = "signup-form" action = "/signup" method = "post">
+            <table>
+                <tr>
+                <td>
+                    <label for= "screenName">Username:</label> 
+                    <input type="text" name="username"  id = "username" required>
+                </td>
+                <td>
+                    <label for = "email" >Email:</label>
+                    <input type="text" name="email"  id = "email" required> <br>
+                </td>
+                <td>{{signup_error}}</td>
+                </tr>
+             </table>
+            <label for = "bio">Bio:</label><br>
+            <textarea name="bio"  id = "bio" required>{{bio}}</textarea><br>
+            <label for = 'password' >Password:</label>
+            <input type="password" name="password"  id = "password" required ><br>
+            <input type="submit" value="Login" id = "submit"><br>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
