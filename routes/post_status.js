@@ -3,14 +3,16 @@ const router = express.Router();
 const data = require("../data");
 const posts = data.posts;
 const beverage = data.beverages;
+const multer = require('multer');
+const upload = multer({dest: __dirname + './../images'});
 
-router.get("/",async(req,res) => { 
+router.post("/", upload.single('image'), async(req,res) => {
     // Will need to reroute to home page
-    if ( false) {//!req.session.user){
+    if ( false ){//!req.session.user){
         res.status(300).send("User Not Authenticated");
     }
     else{
-        res.render('layouts/post_review', {title:'Post A Review'});
+        console.log("should have saved the file");
     }
 });
 module.exports = router;
