@@ -21,7 +21,7 @@ router.post("/", upload.single('image'), async(req,res) => {
         let beverageExists = null;
         let post = null;
         try{
-            post = await posts.postReview(content,"Vincent",path,rating,bid);
+            post = await posts.postReview(content,req.session.user,path,rating,bid);
         }
         catch(e){
             console.log(e);
