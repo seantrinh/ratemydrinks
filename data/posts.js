@@ -3,6 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 const beverage = require('./beverage');
 
 //Post modules
+// Relies on beverage implementation of updateRating, the rest is super simple and has been tested
 module.exports = {
 	// the photo path is supposed to be handled in the route for post
     //https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
