@@ -5,7 +5,7 @@ const posts = require("./posts");
 const beverage = require("./beverage");
  
 module.exports = {
-	account: account
+	account: account,
 	comments: comments,
 	posts: posts,
 	beverage: beverage
