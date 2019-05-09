@@ -30,21 +30,35 @@ module.exports = {
         return new_post;
 	},
     // assuming pid is string representation
-	async getPostByPid(pid) {
-		//get the post object
+	async getPost(pid) {
+		//get the post object 
+        if (pid === undefined){
+            throw 'Error: no pid provided in getPost';
+        }
         const postCollection = await posts();
         let ret = await postCollection.findOne({_id:ObjectId(pid)});
         return ret; 
 	},
-	async deleteReview(pid) {
+	async deletePost(pid) {
 		//given a pid, delete the review in the database
+        if (pid === undefined){
+            throw 'Error: no pid provided in delete';
+        }
         const postCollection = await posts();
-	    let post = await this.getPostByPid(pid); 
+	    let post = await this.getPost(pid); 
         let deleteInfo = await postCollection.deleteOne({_id:ObjectId(pid)}); 
         if (deleteInfo.deletedCount === 0){
             throw 'Could not delete animal';
         }
         let update_result = await beverage.updateRating(post.beverage_id, -1 * post.rating);
         return true;
+    },
+    async getPostsWithBeverageName(name){
+        const postCollection = await posts();
+        if (name === undefined){
+            throw 'Error: no name provided';
+        }
+        let ret = postCollection.find({beverage_id:name}).toArray();
+        return  ret;
     }
 }
