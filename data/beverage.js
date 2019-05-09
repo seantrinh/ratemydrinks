@@ -1,12 +1,17 @@
 //beverage modules
-modules.export = {
-	async createBeverage(type, subtype, tastes, rating, name, company) {
+module.exports = {
+	async getBeverage(beverageId){
+
+    },
+    async createBeverage(type, subtype, tastes, rating, name, company) {
 		//check cookie, if user
 		// rating - float, initialize to 0
 		// make name unique
 		// initialize count of number of ratings to 0
 	},
-	async updateRating(name, newRating) {
+	// if newRating is postitive increment the count in beverages
+    // else remove count, this is for deleting a post
+    async updateRating(name, newRating) {
 		//update rating and increment count
 	},
 	async search(list_of_params) {
