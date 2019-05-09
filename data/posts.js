@@ -2,13 +2,15 @@ const posts = require("./collections").posts;
 const ObjectId = require('mongodb').ObjectId;
 const beverage = require('./beverage');
 const fs = require('fs').promises;
+
 //Post modules
 // Relies on beverage implementation of updateRating, the rest is super simple and has been tested
 module.exports = {
-	// the photo path is supposed to be handled in the route for post
+	
+
+    // the photo path is supposed to be handled in the route for post
     //https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
     //https://medium.com/@nitinpatel_20236/image-upload-via-nodejs-server-3fe7d3faa642
-
     // beverage_id is just the beverage name as a string
     async postReview(content, screenName, photoPath, rating, beverage_id) {
         if (content === undefined || screenName === undefined || photoPath === undefined || rating ===undefined|| beverage_id === undefined){
@@ -29,6 +31,8 @@ module.exports = {
         let update_result = await beverage.updateRating(beverage_id, rating);
         return new_post;
 	},
+    
+
     // assuming pid is string representation
 	async getPost(pid) {
 		//get the post object 
@@ -39,7 +43,9 @@ module.exports = {
         let ret = await postCollection.findOne({_id:ObjectId(pid)});
         return ret; 
 	},
-	async deletePost(pid) {
+	
+
+    async deletePost(pid) {
 		//given a pid, delete the review in the database
         if (pid === undefined){
             throw 'Error: no pid provided in delete';
@@ -50,6 +56,7 @@ module.exports = {
         if (deleteInfo.deletedCount === 0){
             throw 'Could not delete post';
         }
+        // try to delete the phot because there should be a one to one correlation with posts and photos
         try{
             await fs.unlink(post.photo_path);
         }   
@@ -59,6 +66,8 @@ module.exports = {
         let update_result = await beverage.updateRating(post.beverage_id, -1 * post.rating);
         return true;
     },
+    
+    // Load all posts with beverage name
     async getPostsWithBeverageName(name){
         const postCollection = await posts();
         if (name === undefined){

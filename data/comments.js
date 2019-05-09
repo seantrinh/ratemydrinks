@@ -1,5 +1,5 @@
 //Comments modules
-modules.export = {
+module.exports = {
 	async addComment(user, pid, content) {
 		//Create a comment in the database
 		//given the user making the comment
@@ -8,5 +8,9 @@ modules.export = {
 	},
 	async deleteComment(cid) {
 		//Given a comment id, delete the comment from the database
-	}
+	},
+    // Given a post id delete all comments with said pid
+    async deleteCommentsWithPid(pid){
+
+    }
 }
