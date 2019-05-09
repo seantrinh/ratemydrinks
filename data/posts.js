@@ -1,7 +1,7 @@
 const posts = require("./collections").posts;
 const ObjectId = require('mongodb').ObjectId;
 const beverage = require('./beverage');
-
+const fs = require('fs').promises;
 //Post modules
 // Relies on beverage implementation of updateRating, the rest is super simple and has been tested
 module.exports = {
@@ -48,7 +48,13 @@ module.exports = {
 	    let post = await this.getPost(pid); 
         let deleteInfo = await postCollection.deleteOne({_id:ObjectId(pid)}); 
         if (deleteInfo.deletedCount === 0){
-            throw 'Could not delete animal';
+            throw 'Could not delete post';
+        }
+        try{
+            await fs.unlink(post.photo_path);
+        }   
+        catch(e){
+            console.log('Error : could not delete photo');
         }
         let update_result = await beverage.updateRating(post.beverage_id, -1 * post.rating);
         return true;
