@@ -16,6 +16,12 @@ module.exports = {
         if (content === undefined || screenName === undefined || photoPath === undefined || rating ===undefined|| beverage_id === undefined){
             throw 'Not all parameters passed for post';
         }
+        try{
+            await beverage.getBeverage(beverage_id);
+        }
+        catch(e){
+            throw 'Error: no beverage with this name exists';
+        }
         const postCollection = await posts();
         let new_post = {
             content: content,
