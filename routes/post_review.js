@@ -6,7 +6,7 @@ const beverage = data.beverages;
 
 router.get("/",async(req,res) => { 
     // Will need to reroute to home page
-    if ( false) {//!req.session.user){
+    if (!req.session.user){
         res.status(300).send("User Not Authenticated");
     }
     else{

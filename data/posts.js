@@ -13,7 +13,7 @@ module.exports = {
     //https://medium.com/@nitinpatel_20236/image-upload-via-nodejs-server-3fe7d3faa642
     // beverage_id is just the beverage name as a string
     async postReview(content, screenName, photoPath, rating, beverage_id) {
-        if (content === undefined || screenName === undefined || photoPath === undefined || rating ===undefined|| beverage_id === undefined){
+        if (content === undefined || screenName === undefined || photoPath === undefined || rating === undefined|| beverage_id === undefined){
             throw 'Not all parameters passed for post';
         }
         try{
@@ -34,7 +34,7 @@ module.exports = {
         if (insert_result.insertedCount === 0){
             throw 'Error: nothing inserted';
         } 
-        let update_result = await beverage.updateRating(beverage_id, rating);
+        //let update_result = await beverage.updateRating(beverage_id, rating);
         return new_post;
 	},
     
