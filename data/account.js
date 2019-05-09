@@ -4,8 +4,8 @@ const ObjectId = require('mongodb').ObjectID;
 const bcrypt = require('bcrypt');
 const saltRounds = 10; 
 const create_obj = async function create_obj (email,screen_name,bio, password){
-	let salt = await bcrypt.genSalt(saltRounds);
-	let hash = (await bcrypt.hash(password,salt));
+	// let salt = await bcrypt.genSalt(saltRounds);
+	let hash = (await bcrypt.hash(password,saltRounds));
 	 return {
 		Email: email,
 		ScreenName: screen_name,
@@ -55,7 +55,7 @@ const validate  = async function validate(screenName, password) {
 
 		let obj = await getUserByScreenName(screenName);
 
-		if(bcrypt.compare(password,obj.password)){
+		if( await bcrypt.compare(password,obj.password)){
 			return true;
 		}
 		return false;
