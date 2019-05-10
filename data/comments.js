@@ -1,7 +1,7 @@
 //Comments modules
 const comments = require("./collections").comments;
 const ObjectId = require('mongodb').ObjectId;
-const fs = require('fs').promises;
+//const fs = require('fs').promises;
 const account = require('./account');
 const posts = require('./posts');
  
@@ -53,7 +53,7 @@ module.exports = {
 		if (pid === undefined) { throw "No pid provided to delete comments from!"; }
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
-		comment_array.forEach(function(comment) {
+		comment_array.forEach(async function(comment) {
 			const comment = this.getComment(comment.id);
 			if (comment.post_id === pid) {
 				let user = comment.user_id;
@@ -63,3 +63,4 @@ module.exports = {
 		});
     	}
 }
+console.log("test");
