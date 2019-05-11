@@ -26,6 +26,9 @@ module.exports = {
 		};
 		let insert = await commentCollection.insertOne(new_comment);
 		if (insert.insertedCount === 0) { throw "Comment not inserted!"; }
+		try {
+			await account.addComment(user, new_comment.id);
+		} catch (e) { throw "The comment could not be added to the specified user!"; }
 		return new_comment;
 	},
 	async getComment(cid) {
