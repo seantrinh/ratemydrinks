@@ -2,14 +2,18 @@
     <div>
     <h1>Beverage's Name: {{Beverage.name}}</h1> 
     <h1>Beverage's Rating: {{Beverage.rating}}</h1>
-    <p>{{Beverage.ratingCount}}</p>
+    {{!-- <p>{{Beverage.ratingCount}}</p> --}}
     </div>
     
-    {{!-- <div>
+    <div>
         <ol>
-            {{#each Posts}}
-                <li>{{this}} <br> <a href="/comment">Comment</a></li>
-            {{/each}}
+            {{#if Posts.length === 0}}
+                <p>This beverage has no posts.</p>
+            {{else}}
+                {{#each Posts}}
+                    <li>{{Posts.author}}: <a href="posts/{{Posts.id}}">{{Posts.title}}</a> </li>
+                {{/each}}
+            {{/if}}
         </ol>
-    </div> --}}
+    </div>
 </body>
