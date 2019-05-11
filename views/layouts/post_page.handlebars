@@ -8,7 +8,7 @@
              <button type="submit">Delete Post</button>
         </form>
     {{/if}} 
-    <h3> Title: {{post.title}} </h2>
+    <h3> Title: {{post.title}} </h3>
     <h3> Author: {{post.author_id}} </h3>
     <h4> Beverage: {{post.beverage_id}}  </h4>
     <img src="/public/images/{{post.photo_path}}" alt="Beverage Photo"/> 
@@ -17,8 +17,9 @@
     <div class="formArea">
         <form id="comment_form">
             <label for="content"></label>
-            <input type="text" name="content" id="content">
-            <input type="submit" value="Submit comment!">
+            <input type="text" name="content" id="content"/>
+            <input type= "hidden" id = "post_id" name = 'post_id' value = "{{post._id}}"/>
+            <input type="submit" value="Submit comment!"/>
         </form>
     </div>
 
@@ -34,4 +35,6 @@
             {{/each}}
         </ul>
     </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="../../public/js/comment.js"></script>
 </main>

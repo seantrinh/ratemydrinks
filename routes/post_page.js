@@ -35,7 +35,7 @@ router.post("/delete", async(req,res) => {
             await posts.deletePost(req.body.post);
         }
         catch(e){
-            console.log("Could not delete post " + req.body.post);
+            console.log(e);
         }
         res.redirect("/beverage/" + req.body.beverage);
     }
@@ -43,6 +43,15 @@ router.post("/delete", async(req,res) => {
         req.session.beverage = undefined;
         res.redirect("/");
     }
+});
+router.put("/:id",async(req,res)=>{
+    if(!req.session.user){
+        res.status(404).send({Error: "Not authorized"});
+        return;
+    }
+    comments.addComment(req.session.user,req.query.post_id, req.query.content);
+    return;
+
 });
 
 module.exports = router;

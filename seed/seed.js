@@ -71,6 +71,7 @@ const addBeverages = async () => {
     // const beverage = await beverageData.getBeverageByName("Poland Spring Water Bottle");
     const postInfo = await seedPosts();
     await addComments(postInfo);
+    process.exit(0);
 })();
 
 module.exports = seedPosts;

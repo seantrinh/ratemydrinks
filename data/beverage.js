@@ -13,7 +13,7 @@ const ObjectId = require('mongodb').ObjectID;
  *  company: string,
  *  rating: float,
  *  ratingCount: int
- * 
+ *  
  * }
  * 
  */
