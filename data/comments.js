@@ -61,6 +61,21 @@ module.exports = {
 				await this.deleteComment(user, comment_id);
 			}
 		});
-    	}
+    	},
+	async getCommentsWithPid(pid) {
+		//Get comments associated with a given post id
+		if (pid === undefined) { throw "No pid provided to get comments from!"; }
+		const commentCollection = await comments();
+		const comment_array = await commentCollection.find({}).toArray();
+		let ret_comments = [];
+		comment_array.forEach(async function(comment) {
+			const comment = this.getComment(comment.id);
+			if (comment.post_id === pid) {
+				let comment_id = comment.id;
+				ret_comments.push(await this.getComment(comment_id));
+			}
+		});
+		return ret_comments;
+	}
 }
-console.log("test");
+//console.log("test");
