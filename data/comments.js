@@ -64,7 +64,7 @@ module.exports = {
 				let comment_id = comment._id;
 				await this.deleteComment(user, comment_id);
 			}
-		});
+		};
     	},
 	async getCommentsWithPid(pid) {
 		//Get comments associated with a given post id
