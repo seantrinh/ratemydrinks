@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<main class = "search">
+<ul>
+	{{#each drinks}}
+	<li>
+	<a href="/beverage/{{this.id}}">{{this.name}}</a></br>
+	{{/each}}
+	</li>
+</ul>
+</main>
+{{#unless drinks.length}}
+<p class="not-found">We're sorry, but no results were found.</p>
+{{/unless}}
+<br>
+<br>
+<a href = "/" id="make_another_search">Make another search</a>
