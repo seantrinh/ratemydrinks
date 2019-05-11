@@ -9,7 +9,7 @@
         <ol>
             {{#if Posts}}
                 {{#each Posts}}
-                    <li>{{Posts.author}}: <a href="posts/{{Posts.id}}">{{Posts.title}}</a> </li>
+                    <li>{{this.author}}: <a href="../post/{{this.id}}">{{this.title}}</a> </li>
                 {{/each}}   
             {{else}}
                 <p>This beverage has no posts.</p>
