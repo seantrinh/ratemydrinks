@@ -21,7 +21,7 @@ router.get("/:id" , async(req,res) => {
     }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
     let commentArray = await comments.getCommentsWithPid(currentPost._id);
-    if (req.session.user !== undefined && req.session.user === currentPost.user){
+    if (req.session.user !== undefined && req.session.user === currentPost.author_id){
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id} );
     }
     else{

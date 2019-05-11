@@ -69,10 +69,10 @@ module.exports = {
         }
         // try to delete the phot because there should be a one to one correlation with posts and photos
         try{
-            await fs.unlink(post.photo_path);
+            await fs.unlink("/public/images/" + post.photo_path);
         }   
         catch(e){
-            console.log('Error : could not delete photo');
+            console.log('Error : could not delete photo ' + "/public/images/" + post.photoPath);
         }
         let update_result = await beverage.updateRating(post.beverage_id, -1 * post.rating);
         return true;
