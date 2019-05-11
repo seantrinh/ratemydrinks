@@ -1,11 +1,11 @@
 <main>
-    <a href = "/home" > Home </a>
+    <a href = "/home" > Home </a> <br>
     <a href = "/beverage/{{beverageRoute}}" > Beverages </a>
-    {{#if button}}
-        <input type="hidden" id="beverage" name="beverage" value="{{beverageRoute}}" />
-        <input type="hidden" id="post" name="post" value="{{post._id}}" />
+    {{#if button}}  
         <form action="/post/delete" method="POST"> 
-             <button type="submit">Submit</button>
+            <input type="hidden" id="beverage" name="beverage" value="{{beverageRoute}}" />
+            <input type="hidden" id="post" name="post" value="{{post._id}}" />
+             <button type="submit">Delete Post</button>
         </form>
     {{/if}} 
     <h3> Title: {{post.title}} </h2>
@@ -17,8 +17,9 @@
     <div class="formArea">
         <form id="comment_form">
             <label for="content"></label>
-            <input type="text" name="content" id="content">
-            <input type="submit" value="Submit comment!">
+            <input type="text" name="content" id="content"/>
+            <input type= "hidden" id = "post_id" name = 'post_id' value = "{{post._id}}"/>
+            <input type="submit" value="Submit comment!"/>
         </form>
     </div>
 

@@ -21,7 +21,7 @@ router.get("/:id" , async(req,res) => {
     }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
     let commentArray = await comments.getCommentsWithPid(currentPost._id);
-    if (req.session.user !== undefined && req.session.user === currentPost.user){
+    if (req.session.user !== undefined && req.session.user === currentPost.author_id){
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id} );
     }
     else{
@@ -43,6 +43,15 @@ router.post("/delete", async(req,res) => {
         req.session.beverage = undefined;
         res.redirect("/");
     }
+});
+router.put("/:id",async(req,res)=>{
+    if(!req.session.user){
+        res.status(404).send({Error: "Not authorized"});
+        return;
+    }
+    comments.addComment(req.session.user,req.query.post_id, req.query.content);
+    return;
+
 });
 
 module.exports = router;
