@@ -25,12 +25,12 @@ img {
 	color: green;
 }
 ul {
-	background: #3399ff;
-	padding: 20px;	
+	background: #3399ff;	
 }
 ul li {
 	background: #cce5ff;
-	margin: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 a {
 	color: green;
