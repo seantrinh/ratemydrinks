@@ -35,7 +35,7 @@ router.post("/delete", async(req,res) => {
             await posts.deletePost(req.body.post);
         }
         catch(e){
-            console.log("Could not delete post " + req.body.post);
+            console.log(e);
         }
         res.redirect("/beverage/" + req.body.beverage);
     }
