@@ -59,12 +59,12 @@ module.exports = {
 		for (let i = 0; i < comment_array.length; i++) {
 			const currComment = comment_array[i];
 			const comment = this.getComment(currComment._id);
-			if (comment.post_id === pid) {
+			if (comment.post_id.toString() === pid.toString()) {
 				let user = comment.user_id;
 				let comment_id = comment._id;
 				await this.deleteComment(user, comment_id);
 			}
-		};
+		}
     	},
 	async getCommentsWithPid(pid) {
 		//Get comments associated with a given post id
@@ -76,7 +76,7 @@ module.exports = {
 			let currComment = comment_array[i];
 		//comment_array.forEach(async function(currComment) {
 			const comment = await this.getComment(currComment._id);
-			if (comment.post_id === pid) {
+			if (comment.post_id.toString() === pid.toString()) {
 				ret_comments.push(comment);
 			}
 		}
