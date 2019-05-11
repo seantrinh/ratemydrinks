@@ -22,6 +22,9 @@ const index = app=>{
 		console.log("["+(new Date().toUTCString())+"] "+ req.method+" "+req.originalUrl+" "+usr);
 		next();
 	}
+	app.get("/",(req,res)=>{
+		res.redirect("/home");
+	});
 	app.use(logging);
 	app.use('/login_signup',login_signup)
 	app.use('/login',login);
