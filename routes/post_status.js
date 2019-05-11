@@ -11,7 +11,7 @@ const fs = require('fs').promises;
 router.post("/", upload.single('image'), async(req,res) => {
     // Will need to reroute to home page
     if ( !req.session.user){
-        res.status(300).send("User Not Authenticated");
+        res.redirect("/");
     }
     else{
         let bid = req.body.bid;

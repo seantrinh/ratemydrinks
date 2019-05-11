@@ -45,7 +45,13 @@ module.exports = {
             throw 'Error: no pid provided in getPost';
         }
         const postCollection = await posts();
-        let ret = await postCollection.findOne({_id:ObjectId(pid)});
+        let ret = null;
+        try{
+            ret = await postCollection.findOne({_id:ObjectId(pid)});
+        }
+        catch(e){
+            throw 'Error';
+        }
         return ret; 
 	},
 	
