@@ -56,11 +56,12 @@ module.exports = {
 		if (pid === undefined) { throw "No pid provided to delete comments from!"; }
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
-		comment_array.forEach(async function(comment) {
-			const comment = this.getComment(comment.id);
+		for (let i = 0; i < comment_array.length; i++) {
+			const currComment = comment_array[i];
+			const comment = this.getComment(currComment._id);
 			if (comment.post_id === pid) {
 				let user = comment.user_id;
-				let comment_id = comment.id;
+				let comment_id = comment._id;
 				await this.deleteComment(user, comment_id);
 			}
 		});
@@ -72,7 +73,7 @@ module.exports = {
 		const comment_array = await commentCollection.find({}).toArray();
 		let ret_comments = [];
 		for (let i = 0 ; i < comment_array.length ; ++i){
-			currComment = comment_array[i];
+			let currComment = comment_array[i];
 		//comment_array.forEach(async function(currComment) {
 			const comment = await this.getComment(currComment._id);
 			if (comment.post_id === pid) {
