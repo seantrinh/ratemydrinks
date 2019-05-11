@@ -7,6 +7,8 @@ const post_status = require("./post_status");
 const beverage = require("./beverage");
 const home = require("./home");
 const home_unauth = require("./home_unauth");
+const post_page = require("./post_page");
+
 
 const index = app=>{
 	function logging (req,res,next){
@@ -30,6 +32,7 @@ const index = app=>{
 	app.use('/beverage',beverage);
 	app.use('/home',home);
 	app.use('/home_unauth',home_unauth);
+	app.use('/post',post_page);
 	app.get("*",(req,res)=>{ 
 		res.status(404).send("Page not Found");;
 	});

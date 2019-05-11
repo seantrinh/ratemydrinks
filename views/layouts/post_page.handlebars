@@ -1,0 +1,25 @@
+<main>
+    <a href = "/home" > Home </a>
+    <a href = "/beverage/{{beverageRoute}}" > Beverages </a>
+    {{#if button}}
+        <form action="/post/delete" method="POST"> 
+             <button type="submit">Submit</button>
+        </form>
+    {{/if}} 
+    <h3> Title: {{post.title}} </h2>
+    <h3> Author: {{post.author}} </h3>
+    <h4> Beverage: {{post.beverage}}  </h4>
+    <img src="/public/images/{{post.path}}" alt="Beverage Photo"/> 
+    <p> {{post.content}} </p>
+    
+
+    <ul>
+        {{#each comments}}
+            <li id="comments">
+                <div>
+                    USER: {{this.user_id}} <br>
+                    CONTENT: {{this.content}} <br>
+                </div>
+            </li>
+    </ul>
+</main>
