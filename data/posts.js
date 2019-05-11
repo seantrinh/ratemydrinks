@@ -10,8 +10,8 @@ module.exports = {
     //https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express
     //https://medium.com/@nitinpatel_20236/image-upload-via-nodejs-server-3fe7d3faa642
     // beverage_id is just the beverage name as a string
-    async postReview(content, screenName, photoPath, rating, beverage_id) {
-        if (content === undefined || screenName === undefined || photoPath === undefined || rating === undefined|| beverage_id === undefined){
+    async postReview(content, screenName, photoPath, rating, beverage_id, title) {
+        if (content === undefined || screenName === undefined || photoPath === undefined || rating === undefined|| beverage_id === undefined || title === undefined){
             throw 'Not all parameters passed for post';
         }
         try{
@@ -26,7 +26,8 @@ module.exports = {
             author_id : screenName,
             photo_path : photoPath,
             rating: rating,
-            beverage_id: beverage_id
+            beverage_id: beverage_id,
+            title:title
         };
         let insert_result = await postCollection.insertOne(new_post);
         if (insert_result.insertedCount === 0){
@@ -35,9 +36,7 @@ module.exports = {
         //let update_result = await beverage.updateRating(beverage_id, rating);
         return new_post;
 	},
-    
-
-    // assuming pid is string representation
+    // assumin pid is string representation
 	async getPost(pid) {
 		//get the post object 
         if (pid === undefined){
