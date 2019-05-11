@@ -4,6 +4,7 @@ const logout = require("./logout");
 const login_signup  = require("./login_signup");
 const post_review = require("./post_review");
 const post_status = require("./post_status");
+const beverage = require("./beverage");
 
 const index = app=>{
 	function logging (req,res,next){
@@ -23,7 +24,8 @@ const index = app=>{
 	app.use('/logout',logout);
 	app.use('/signup',signup);
 	app.use('/post_review',post_review); 
-	app.use('/post_status',post_status)
+	app.use('/post_status',post_status);
+	app.use('/beverage.js',beverage);
 	app.get("*",(req,res)=>{ 
 		res.status(404).send("Page not Found");;
 	});
