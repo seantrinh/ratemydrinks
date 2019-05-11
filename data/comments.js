@@ -71,13 +71,14 @@ module.exports = {
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
 		let ret_comments = [];
-		comment_array.forEach(async function(currComment) {
+		for (let currComment in comment_array){
+		//comment_array.forEach(async function(currComment) {
 			const comment = await this.getComment(currComment._id);
 			if (comment.post_id === pid) {
 				let comment_id = comment._id;
 				ret_comments.push(await this.getComment(comment_id));
 			}
-		});
+		}
 		return ret_comments;
 	}
 }
