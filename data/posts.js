@@ -33,7 +33,9 @@ module.exports = {
         if (insert_result.insertedCount === 0){
             throw 'Error: nothing inserted';
         } 
+        
         //let update_result = await beverage.updateRating(beverage_id, rating);
+        new_post._id = insert_result.insertedId;
         return new_post;
 	},
     // assumin pid is string representation
