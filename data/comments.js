@@ -71,10 +71,10 @@ module.exports = {
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
 		let ret_comments = [];
-		comment_array.forEach(async function(comment) {
-			const comment = this.getComment(comment.id);
+		comment_array.forEach(async function(currComment) {
+			const comment = this.getComment(currComment.id);
 			if (comment.post_id === pid) {
-				let comment_id = comment.id;
+				let comment_id = comment._id;
 				ret_comments.push(await this.getComment(comment_id));
 			}
 		});

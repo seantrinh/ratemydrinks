@@ -20,7 +20,7 @@ router.get("/:id" , async(req,res) => {
         res.status.send("Posts not found");
     }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
-    let commentArray = await comments.getCommentsWithPid(currentPost.id);
+    let commentArray = await comments.getCommentsWithPid(currentPost._id);
     
     if (req.session.user !== undefined && req.session.user === currentPost.user){
         req.session.beverage = id;
