@@ -25,7 +25,7 @@ const index = app=>{
 	app.use('/signup',signup);
 	app.use('/post_review',post_review); 
 	app.use('/post_status',post_status);
-	app.use('/beverage.js',beverage);
+	app.use('/beverage',beverage);
 	app.get("*",(req,res)=>{ 
 		res.status(404).send("Page not Found");;
 	});
