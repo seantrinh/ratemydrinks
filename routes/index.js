@@ -26,6 +26,8 @@ const index = app=>{
 	app.use('/post_review',post_review); 
 	app.use('/post_status',post_status);
 	app.use('/beverage',beverage);
+	app.use('/home',home);
+	app.use('/home_unauth',home_unauth);
 	app.get("*",(req,res)=>{ 
 		res.status(404).send("Page not Found");;
 	});
