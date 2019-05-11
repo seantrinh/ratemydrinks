@@ -5,7 +5,7 @@ const acc = require("../data").account;
 
 router.get("/",async (req,res)=>{
 	req.session.destroy();
-	res.redirect("/home");
+	res.redirect("/home_unauth");
 });
 
 
