@@ -168,7 +168,7 @@ const updateBeverageRating = async (name, rating) => {
   try {
 
     let beverage = await getBeverageByName(name);
-    const newCount = beverage.ratingCount + 1;
+    const newCount = (rating > 0) ? beverage.ratingCount + 1 : beverage.ratingCount - 1;
     const newRating = (beverage.rating + rating) / newCount;
 
     const beverages = await beverageData();

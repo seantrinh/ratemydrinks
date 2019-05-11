@@ -34,7 +34,7 @@ module.exports = {
             throw 'Error: nothing inserted';
         } 
         
-        let update_result = await beverage.updateBeverageRating(beverage_id, rating);
+        let update_result = await beverage.updateBeverageRating(beverage_id, parseInt(rating));
         new_post._id = insert_result.insertedId;
         return new_post;
 	},
@@ -69,12 +69,12 @@ module.exports = {
         }
         // try to delete the phot because there should be a one to one correlation with posts and photos
         try{
-            await fs.unlink(__dirname + "./../post.photo_path");
+            await fs.unlink("./public/images/" + post.photo_path);
         }   
         catch(e){
             console.log('Error : could not delete photo ' + "/public/images/" + post.photo_path);
         }
-        let update_result = await beverage.updateRating(post.beverage_id, -1 * post.rating);
+        let update_result = await beverage.updateBeverageRating(post.beverage_id, -1 * post.rating);
         return true;
     },
     

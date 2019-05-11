@@ -6,7 +6,6 @@ const beverage = data.beverage;
 const comments = data.comments;
 const fs = require('fs').promises;
 
-
 router.get("/:id" , async(req,res) => {
     let id = req.params.id;
     if (id === undefined){
@@ -15,7 +14,7 @@ router.get("/:id" , async(req,res) => {
     let currentPost = null;
     try{
         currentPost = await posts.getPost(id);
-    }
+    } 
     catch(e){
         res.send("Posts not found");
     }

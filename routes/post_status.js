@@ -28,7 +28,7 @@ router.post("/", upload.single('image'), async(req,res) => {
             console.log(e);
             res.render('layouts/post_status', {error:true});
             console.log("deleting " + path);
-            await fs.unlink(path);
+            await fs.unlink("./public/images/"+ path);
             return;
         }
         res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false});
