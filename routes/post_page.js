@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const posts = data.posts;
-const beverage = data.beverages;
+const beverage = data.beverage;
 const comments = data.comments;
 const fs = require('fs').promises;
 
