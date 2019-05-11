@@ -18,10 +18,11 @@ router.post("/", upload.single('image'), async(req,res) => {
         let path = req.file.filename;
         let rating = req.body.rating;
         let content = req.body.content;
+        let title = req.body.title;
         let beverageExists = null;
         let post = null;
         try{
-            post = await posts.postReview(content,req.session.user,path,rating,bid);
+            post = await posts.postReview(content,req.session.user,path,rating,bid,title);
         }
         catch(e){
             console.log(e);
@@ -30,7 +31,7 @@ router.post("/", upload.single('image'), async(req,res) => {
             await fs.unlink(path);
             return;
         }
-        res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, error:false});
+        res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false});
     }
 });
 module.exports = router;
