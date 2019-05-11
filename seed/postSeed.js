@@ -18,7 +18,7 @@ module.exports = [
     {
         content: "Really a bad drink. The orange juice is overly sweet and just looks like something out of a horror film. Would not recommend to anyone who plans on living for more than 25 years.",
         author_id: "justcynical12",
-        photo_path: "angry.jpg",
+        photo_path: "angry.png",
         rating: 1,
         beverage_id: "Trop Orange Juice",
         title: "Possibly the worst beverage I've consumed..."
