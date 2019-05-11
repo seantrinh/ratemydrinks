@@ -1,3 +1,28 @@
+body {
+	background: #ffffcc;
+}
+h1 {
+	color: blue;
+}
+h2 {
+	color: green;
+}
+h3 {
+	color: orange;
+}
+h4 {
+	color: purple;
+}
+p {
+	color: black;
+}
+img {
+	border-radius: 8px;
+}
+input[type=text] {
+	border: 2px solid red;
+	border-radius: 4px;
+}
 .comment {
-
+	color: green;
 }
