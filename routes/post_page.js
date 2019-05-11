@@ -44,12 +44,15 @@ router.post("/delete", async(req,res) => {
         res.redirect("/");
     }
 });
-router.put("/:id",async(req,res)=>{
+router.put("/:id/:content",async(req,res)=>{
+   
     if(!req.session.user){
         res.status(404).send({Error: "Not authorized"});
         return;
     }
-    comments.addComment(req.session.user,req.query.post_id, req.query.content);
+
+    await comments.addComment(req.session.user,req.params.id, req.params.content);
+    res.status(202).send();
     return;
 
 });
