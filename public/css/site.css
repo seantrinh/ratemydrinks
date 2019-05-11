@@ -1,0 +1,53 @@
+body {
+	background: #ffffcc;
+}
+main {
+	background: grey;
+}
+h1 {
+	color: blue;
+}
+h2 {
+	color: green;
+}
+h3 {
+	color: orange;
+}
+h4 {
+	color: purple;
+}
+p {
+	color: black;
+}
+img {
+	border-radius: 8px;
+}
+input[type=text] {
+	border: 2px solid red;
+	border-radius: 4px;
+}
+.comment {
+	color: green;
+}
+ul {
+	background: #3399ff;
+	padding: 20px;	
+}
+ul li {
+	background: #cce5ff;
+	margin: 5px;
+}
+a {
+	color: green;
+}
+label {
+	color: red;
+}
+.button {
+	background-color: green;
+	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+}
+
