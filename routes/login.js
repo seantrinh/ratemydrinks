@@ -16,7 +16,7 @@ router.post("/",async (req,res)=>{
 	console.log(valid)
 	if(valid){
 		req.session.user = usr;
-		res.send("<a href = \"/logout\">Logout</a>");
+		res.redirect("/home");
 		return;
 	}
 	res.render('layouts/login_signup', { layout:false, login_error: "Incorrect Username or Password"});

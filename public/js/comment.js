@@ -14,3 +14,18 @@ function addComment() {
 		alert("Please add content to your comment!");
 	}
 }
+
+$(function() {
+	$('#comment_form').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+	var content = $('#comment_form').serialize();
+	$.ajax({
+    		url: 'comment/'+content,
+    		type: 'PUT',
+    		success: function(result) {
+        		// Do something with the result
+			this.addComment();
+    		}
+	});
+    });	
+});

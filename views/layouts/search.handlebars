@@ -1,15 +1,34 @@
-<h1>{{title}}</h1>
+<h1>{{heading}}</h1>
 <main class = "search">
+<form id = "search" action = '/home' method = 'post'>
+	<label for="beverage_name" > Beverage Name: </label>
+    <input type="text" id="beverage_name" name="beverage_name" required><br>
+    <label for="rating"> Rating:</label>
+    <input type="number" min="0" max="5" id = "rating" name="rating" required>
+    <label for= tastes">Tastes:</label>
+    <textarea name="tastes"  id = "tastes" required></textarea><br>
+    <label for="type" > Type: </label>
+    <input type="text" id="type" name="type" required><br>
+    <label for="subtype" > Subtype </label>
+    <input type="text" id="subtype" name="subtype" required><br>
+    <label for="company" > Company Name: </label>
+    <input type="text" id="company" name="company" required><br>
+    <input type="submit" value="Search" id = "submit" ><br>
+</form>
+
 <ul>
 	{{#each drinks}}
 	<li>
 	<a href="/beverage/{{this.id}}">{{this.name}}</a></br>
-	{{/each}}
+	
 	</li>
+	{{/each}}
 </ul>
 </main>
-{{#unless drinks.length}}
+{{#unless drinks}}
+
 <p class="not-found">We're sorry, but no results were found.</p>
+
 {{/unless}}
 <br>
 <br>

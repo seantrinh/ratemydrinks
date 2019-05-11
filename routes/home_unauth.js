@@ -4,10 +4,20 @@ const router = express.Router();
 const beverage = require("../data").beverage;
 router.post("/",async(req,res)=>{
         try {
-                        let result = await beverage.search(req.body);
-                        res.render("layouts/search", { title: "Drinks Found", drinks: result });
+                        let body = {
+                                type: req.body.type,
+                                subtype: req.body.subtype,
+                                tastes: req.body.tastes.split(" "),
+                                name: req.body.beverage_name,
+                                company: req.body.company,
+                                rating: parseFloat(req.body.rating)
+
+                        };
+                        let result = await beverage.search(body);
+                       
+                        res.render("layouts/search", { heading: "Drinks Found", drinks: result, LOGIN_LINK :"Login"});
         } catch (e) {
-                        res.status(400).render('layouts/error', { title: "400 Error" });
+                        res.status(400).render('layouts/error', { heading: "400 Error" });
         }
 });
 router.get("/", async(req, res) => {
@@ -17,9 +27,9 @@ router.get("/", async(req, res) => {
         //      send res the items
 	try {
                 
-                res.render("layouts/search", { title: "Drinks Found" });
+                res.render("layouts/search", { heading: "Drinks Found", drinks: 5, LOGIN_LINK :"Login" });
         } catch (e) {
-                res.status(400).render('layouts/error', { title: "400 Error" });
+                res.status(400).render('layouts/error', { heading: "400 Error" });
         }
 
 });
