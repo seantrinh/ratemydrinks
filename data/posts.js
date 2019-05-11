@@ -15,7 +15,7 @@ module.exports = {
             throw 'Not all parameters passed for post';
         }
         try{
-            await beverage.getBeverage(beverage_id);
+            await beverage.getBeverageByName(beverage_id);
         }
         catch(e){
             throw 'Error: no beverage with this name exists';
