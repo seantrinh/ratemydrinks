@@ -1,6 +1,9 @@
 body {
 	background: #ffffcc;
 }
+main {
+	background: grey;
+}
 h1 {
 	color: blue;
 }
@@ -26,3 +29,25 @@ input[type=text] {
 .comment {
 	color: green;
 }
+ul {
+	background: #3399ff;
+	padding: 20px;	
+}
+ul li {
+	background: #cce5ff;
+	margin: 5px;
+}
+a {
+	color: green;
+}
+label {
+	color: red;
+}
+.button {
+	background-color: green;
+	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+}
+
