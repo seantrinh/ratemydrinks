@@ -7,7 +7,7 @@
     
     <div>
         <ol>
-            {{#if Posts.length === 0}}
+            {{#if !Posts.length}}
                 <p>This beverage has no posts.</p>
             {{else}}
                 {{#each Posts}}

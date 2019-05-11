@@ -5,6 +5,8 @@ const login_signup  = require("./login_signup");
 const post_review = require("./post_review");
 const post_status = require("./post_status");
 const beverage = require("./beverage");
+const home = require("./home");
+const home_unauth = require("./home_unauth");
 
 const index = app=>{
 	function logging (req,res,next){
