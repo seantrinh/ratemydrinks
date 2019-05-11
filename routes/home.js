@@ -4,11 +4,16 @@ const router = express.Router();
 const path = require("path");
 const beverage = require("../data").beverage;
 
-router.get("/", (req, res) => {
+router.post("/", async (req, res) => {
 	//search parameters?
 	//render a specific layout
 	//if search returns items
 	//	send res the items
+	try {
+		//let result = await beverage.search
+	} catch (e) {
+		res.status(400).render('layouts/error', { title: "400 Error" });
+	}
 });
 
 module.exports = router;
