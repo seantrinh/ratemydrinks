@@ -1,9 +1,7 @@
 body {
 	background: #fff7d8;
 }
-main {
-	background: grey;
-}
+
 h1 {
 	color: blue;
 }
@@ -22,10 +20,7 @@ p {
 img {
 	border-radius: 8px;
 }
-input[type=text] {
-	border: 2px solid red;
-	border-radius: 4px;
-}
+
 .comment {
 	color: green;
 }
@@ -51,22 +46,52 @@ label {
 	display: inline-block;
 }
 
+.loginOrLogout a{
+	text-align: left;
+	color: blue;
+	font-size: 20px;
+}
+
+.loginOrLogout {
+	float: right;
+}
+
 .title {
-	border-bottom: 5px solid black;
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
 	margin-bottom: 20px;
-}
-
-.title span{
+	margin-top: 15px;
+	font-size: 70px;
 	color: black;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 40px;
-	border: 5px solid blue;
-	padding: 5px;
-	border-radius: 25px;
-
 }
 
-.search ul{
-	background:#707070;
 
+.search {
+	background: #c6d8f4;
+}
+
+
+.search form label{
+	color: black;
+	display: inline-block;
+	font-size: 20px;
+	width: 140px;
+	text-align: right;	
+}
+
+.search form input{
+	border-color: black;
+	border-width: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.search form input[type="submit"]{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.search form textarea{
+	border-color: black;
+	border-width: 1px;
 }

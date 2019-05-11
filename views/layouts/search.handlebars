@@ -1,11 +1,11 @@
-<h1>{{heading}}</h1>
+<h1 class="title">{{heading}}</h1>
 <main class = "search">
 <form id = "search" action = '/home' method = 'post'>
 	<label for="beverage_name" > Beverage Name: </label>
     <input type="text" id="beverage_name" name="beverage_name" required><br>
     <label for="rating"> Rating:</label>
-    <input type="number" min="0" max="5" id = "rating" name="rating" required>
-    <label for= tastes">Tastes:</label>
+    <input type="number" min="0" max="5" id = "rating" name="rating" required><br>
+    <label style = "vertical-align: top" for= "tastes">Tastes:</label>
     <textarea name="tastes"  id = "tastes" required></textarea><br>
     <label for="type" > Type: </label>
     <input type="text" id="type" name="type" required><br>
