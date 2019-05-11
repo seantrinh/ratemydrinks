@@ -31,4 +31,4 @@ module.exports = [
         beverage_id: "Poland Spring Water Bottle",
         title: "Great to drink, not to look at"
     },
-]
+];

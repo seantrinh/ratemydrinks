@@ -15,7 +15,7 @@ module.exports = {
             throw 'Not all parameters passed for post';
         }
         try{
-            await beverage.getBeverage(beverage_id);
+            await beverage.getBeverageByName(beverage_id);
         }
         catch(e){
             throw 'Error: no beverage with this name exists';
@@ -45,7 +45,13 @@ module.exports = {
             throw 'Error: no pid provided in getPost';
         }
         const postCollection = await posts();
-        let ret = await postCollection.findOne({_id:ObjectId(pid)});
+        let ret = null;
+        try{
+            ret = await postCollection.findOne({_id:ObjectId(pid)});
+        }
+        catch(e){
+            throw 'Error';
+        }
         return ret; 
 	},
 	
