@@ -21,13 +21,13 @@ module.exports = {
 		} catch (e) { throw "The user and/or pid are invalid!"; }
 		let new_comment = {
 			user_id: user,
-			post_id: post,
+			post_id: pid,
 			content: content
 		};
 		let insert = await commentCollection.insertOne(new_comment);
 		if (insert.insertedCount === 0) { throw "Comment not inserted!"; }
 		try {
-			await account.addComment(user, new_comment.id);
+			await account.addComment(user, insert.insertedId.toString());
 		} catch (e) { throw "The comment could not be added to the specified user!"; }
 		return new_comment;
 	},
@@ -56,14 +56,15 @@ module.exports = {
 		if (pid === undefined) { throw "No pid provided to delete comments from!"; }
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
-		comment_array.forEach(async function(comment) {
-			const comment = this.getComment(comment.id);
-			if (comment.post_id === pid) {
+		for (let i = 0; i < comment_array.length; i++) {
+			const currComment = comment_array[i];
+			const comment = this.getComment(currComment._id);
+			if (comment.post_id.toString() === pid.toString()) {
 				let user = comment.user_id;
-				let comment_id = comment.id;
+				let comment_id = comment._id;
 				await this.deleteComment(user, comment_id);
 			}
-		});
+		}
     	},
 	async getCommentsWithPid(pid) {
 		//Get comments associated with a given post id
@@ -71,13 +72,14 @@ module.exports = {
 		const commentCollection = await comments();
 		const comment_array = await commentCollection.find({}).toArray();
 		let ret_comments = [];
-		comment_array.forEach(async function(comment) {
-			const comment = this.getComment(comment.id);
-			if (comment.post_id === pid) {
-				let comment_id = comment.id;
-				ret_comments.push(await this.getComment(comment_id));
+		for (let i = 0 ; i < comment_array.length ; ++i){
+			let currComment = comment_array[i];
+		//comment_array.forEach(async function(currComment) {
+			const comment = await this.getComment(currComment._id);
+			if (comment.post_id.toString() === pid.toString()) {
+				ret_comments.push(comment);
 			}
-		});
+		}
 		return ret_comments;
 	}
 }

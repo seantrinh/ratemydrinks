@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const posts = data.posts;
-const beverage = data.beverages;
+const beverage = data.beverage;
 const comments = data.comments;
 const fs = require('fs').promises;
 
@@ -17,13 +17,11 @@ router.get("/:id" , async(req,res) => {
         currentPost = await posts.getPost(id);
     }
     catch(e){
-        res.status.send("Posts not found");
+        res.send("Posts not found");
     }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
-    let commentArray = await comments.getCommentsWithPid(currentPost.id);
-    
-    if (req.session.user !== undefined && req.session.user === currentPost.user){
-        req.session.beverage = id;
+    let commentArray = await comments.getCommentsWithPid(currentPost._id);
+    if (req.session.user !== undefined && req.session.user === currentPost.author_id){
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id} );
     }
     else{
@@ -33,8 +31,13 @@ router.get("/:id" , async(req,res) => {
 
 router.post("/delete", async(req,res) => {
     if (req.session.user){
-        res.redirect("/beverage/") + req.session.beverage;
-        req.session.beverage = id;
+        try{
+            await posts.deletePost(req.body.post);
+        }
+        catch(e){
+            console.log("Could not delete post " + req.body.post);
+        }
+        res.redirect("/beverage/" + req.body.beverage);
     }
     else{
         req.session.beverage = undefined;

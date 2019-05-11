@@ -1,22 +1,24 @@
 <main>
-    <a href = "/home" > Home </a>
+    <a href = "/home" > Home </a> <br>
     <a href = "/beverage/{{beverageRoute}}" > Beverages </a>
-    {{#if button}}
+    {{#if button}}  
         <form action="/post/delete" method="POST"> 
-             <button type="submit">Submit</button>
+            <input type="hidden" id="beverage" name="beverage" value="{{beverageRoute}}" />
+            <input type="hidden" id="post" name="post" value="{{post._id}}" />
+             <button type="submit">Delete Post</button>
         </form>
     {{/if}} 
     <h3> Title: {{post.title}} </h2>
-    <h3> Author: {{post.author}} </h3>
-    <h4> Beverage: {{post.beverage}}  </h4>
-    <img src="/public/images/{{post.path}}" alt="Beverage Photo"/> 
+    <h3> Author: {{post.author_id}} </h3>
+    <h4> Beverage: {{post.beverage_id}}  </h4>
+    <img src="/public/images/{{post.photo_path}}" alt="Beverage Photo"/> 
     <p> {{post.content}} </p>
     
     <div class="formArea">
-        <form>
+        <form id="comment_form">
             <label for="content"></label>
             <input type="text" name="content" id="content">
-            <input type="button" onclick="addComment()" value="Submit comment!">
+            <input type="submit" value="Submit comment!">
         </form>
     </div>
 
@@ -29,6 +31,7 @@
                         CONTENT: {{this.content}} <br>
                     </div>
                 </li>
+            {{/each}}
         </ul>
     </div>
 </main>
