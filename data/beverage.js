@@ -137,7 +137,7 @@ const search = async (searchJSON) => {
 
   // Setup greater than filter if rating is set
   if (searchJSON.rating) {
-    searchJSON.rating =  { $gt: searchJSON.rating };
+    searchJSON.rating =  { $gte: searchJSON.rating };
   }
 
   const beverages = await beverageData();

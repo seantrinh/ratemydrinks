@@ -7,25 +7,32 @@ const posts = require("../data").posts;
 router.get("/:id", async (req, res) => {
   //Id of the specific drink
   const bvgId = req.params.id;
-  var currentBvg;
-  var currentBvgPosts;
+
   try {
-    currentBvg = await beverage.getBeverageById(bvgId);
+    const currentBvg = await beverage.getBeverageById(bvgId);
+    const currentBvgPosts = await posts.getPostsWithBeverageName(currentBvg.name);
+  
+    const postInfo = currentBvgPosts.map( (post) => {
+      return {
+        id: post._id,
+        author: post.author_id,
+        title: post.title
+      }
+    });
+
+    const data = {
+      Beverage: currentBvg,
+      Posts: postInfo
+    };
+  
+    res.render("layouts/beverage", data);
+
   } catch(e){
     console.log("Could not find beverage")
     res.redirect("/home")
   }
   
-  currentBvgPosts = await posts.getPostsWithBeverageName(currentBvg.name);
-  
 
-  const data = {
-    title: "Beverage",
-    Beverage: currentBvg,
-    Posts: currentBvgPosts
-  }
-
-  res.render("layouts/beverage",data);
   
 
 });
