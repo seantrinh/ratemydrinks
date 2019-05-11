@@ -21,7 +21,7 @@ module.exports = {
 		} catch (e) { throw "The user and/or pid are invalid!"; }
 		let new_comment = {
 			user_id: user,
-			post_id: post,
+			post_id: pid,
 			content: content
 		};
 		let insert = await commentCollection.insertOne(new_comment);
