@@ -4,7 +4,7 @@ const path = require("path");
 const beverage = require("../data").beverage;
 const posts = require("../data").posts;
 
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   //Id of the specific drink
   const bvgId = req.params.id;
   var currentBvg;
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
 
 });
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   //No id given so redirect to home page
   //res.redirect("/home")
   
