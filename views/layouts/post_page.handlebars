@@ -12,14 +12,23 @@
     <img src="/public/images/{{post.path}}" alt="Beverage Photo"/> 
     <p> {{post.content}} </p>
     
+    <div class="formArea">
+        <form method="POST">
+            <label for="content"></label>
+            <input type="text" name="content" id="content">
+            <input type="button" onclick="addComment()" value="Submit comment!">
+        </form>
+    </div>
 
-    <ul>
-        {{#each comments}}
-            <li id="comments">
-                <div>
-                    USER: {{this.user_id}} <br>
-                    CONTENT: {{this.content}} <br>
-                </div>
-            </li>
-    </ul>
+    <div class="commentArea">
+        <ul>
+            {{#each comments}}
+                <li id="comments">
+                    <div>
+                        USER: {{this.user_id}} <br>
+                        CONTENT: {{this.content}} <br>
+                    </div>
+                </li>
+        </ul>
+    </div>
 </main>
