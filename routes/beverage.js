@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.get("/", async (req, res) => {
+router.get("/", async(req, res) => {
   //No id given so redirect to home page
   //res.redirect("/home")
   
