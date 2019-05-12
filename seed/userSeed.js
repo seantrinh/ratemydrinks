@@ -23,5 +23,11 @@ module.exports = [
         screen_name: "snob13",
         bio: "I just can't stand things that don't meet my expectations. Some people just disgust me.",
         password: "highstandards"
+    },
+    {
+        email: "pbarresi@stevens.edu",
+        screen_name: "pbarresi",
+        bio: "A wonderful professor for CS 546-WS.",
+        password: "password"
     }
 ]
