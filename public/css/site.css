@@ -44,8 +44,12 @@ label {
 	color: white;
 	text-align: center;
 	display: inline-block;
-	width:60px;
+	width:120px;
 	height:30px;
+	cursor: pointer;
+}
+.button:hover {
+	background-color: #79C879;
 }
 
 .loginOrLogout a{
@@ -96,4 +100,19 @@ label {
 .search form textarea{
 	border-color: black;
 	border-width: 1px;
+}
+
+.navBar {
+	float: left;
+}
+
+.navLink {
+	font-size: 18pt;
+	color: blue;
+	padding-right: 10px;
+}
+
+.commentArea {
+	width: 500px;
+	height: 150px;
 }
