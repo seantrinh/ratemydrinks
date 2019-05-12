@@ -6,6 +6,14 @@
 	    <link rel="stylesheet" href="/public/css/site.css">
 	</head>
 	<body>
+		<table>
+			<tr>
+				{{#if LOGOUT_LINK}}
+				<td><a href="/post_beverage">Create a beverage</a></td>
+				<td><a href="/post_review">Write a review</a></td>
+				{{/if}}
+			</tr>
+		</table>
 		<nav class="loginOrLogout">
 			<table>
 				<tr>
