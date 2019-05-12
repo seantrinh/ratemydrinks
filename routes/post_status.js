@@ -22,14 +22,18 @@ router.post("/", upload.single('image'), async(req,res) => {
         let beverageExists = null;
         let post = null;
         try{
-            post = await posts.postReview(content,req.session.user,path,rating,bid,title);
+            	post = await posts.postReview(content,req.session.user,path,rating,bid,title);
+		if (post === 1) {
+			res.redirect("/post_beverage");
+			return;
+		}
         }
         catch(e){
-            console.log(e);
-            res.render('layouts/post_status', {error:true});
-            console.log("deleting " + path);
-            await fs.unlink("./public/images/"+ path);
-            return;
+        	console.log(e);
+            	res.render('layouts/post_status', {error:true});
+           	console.log("deleting " + path);
+            	await fs.unlink("./public/images/"+ path);
+        	return;
         }
         res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false});
     }
