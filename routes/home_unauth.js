@@ -17,6 +17,7 @@ router.post("/",async(req,res)=>{
                        
                         res.render("layouts/search", { heading: "Drinks Found", drinks: result, LOGIN_LINK :"Login"});
         } catch (e) {
+                        console.log(`home_unauth search: ${e}`);
                         res.status(400).render('layouts/error', { heading: "400 Error" });
         }
 });

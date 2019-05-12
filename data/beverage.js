@@ -134,10 +134,19 @@ const search = async (searchJSON) => {
   if (typeof searchJSON !== 'object') {
     throw "Beverages: searchJSON must be an object";
   }
+  // Remove all undefined fields.
+  Object.keys(searchJSON).forEach(key => searchJSON[key] === undefined && delete searchJSON[key]);
+
+  if (searchJSON.tastes) {
+    searchJSON.tastes = { $in: searchJSON.tastes };
+  }
 
   // Setup greater than filter if rating is set
   if (searchJSON.rating) {
     searchJSON.rating =  { $gte: searchJSON.rating };
+  }
+  else {
+    searchJSON.rating =  { $gte: 0 };
   }
 
   const beverages = await beverageData();

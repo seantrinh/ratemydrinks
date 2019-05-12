@@ -16,7 +16,7 @@ module.exports = [
     {
         type: 'Juice',
         subtype: 'Fruit Juice',
-        tastes: ['Sweet', 'Refreshing', ''],
+        tastes: ['Sweet', 'Refreshing', 'Acidic'],
         name: 'Trop Orange Juice',
         company: 'Tropicana',
     },
