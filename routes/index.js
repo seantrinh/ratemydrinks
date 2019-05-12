@@ -8,7 +8,8 @@ const beverage = require("./beverage");
 const home = require("./home");
 const home_unauth = require("./home_unauth");
 const post_page = require("./post_page");
-
+const post_beverage = require("./post_beverage");
+const beverage_status = require("./beverage_status");
 
 const index = app=>{
 	function logging (req,res,next){
@@ -36,6 +37,8 @@ const index = app=>{
 	app.use('/home',home);
 	app.use('/home_unauth',home_unauth);
 	app.use('/post',post_page);
+	app.use('/post_beverage',post_beverage);
+	app.use('/beverage_status',beverage_status);
 	app.get("*",(req,res)=>{ 
 		res.status(404).send("Page not Found");;
 	});
