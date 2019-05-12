@@ -15,8 +15,8 @@ npm start
 ```
 
 3. Use the following login credentials
-- Username:
-- Password:
+- Username: pbarresi
+- Password: password
 
 ## Team Name
 Phil Barresi is a Danger Noodle
