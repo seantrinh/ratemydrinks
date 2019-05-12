@@ -11,8 +11,7 @@ $(function() {
     		type: 'put',
     		success: function(result) {
     			var content = $('#comment_form').serializeArray();
-        		$('.comments_unordered_list').append("<li>You:"+content[0].value+"</li>");
-			
+        		$('.comments_unordered_list').append("<li>You: "+content[0].value+"</li>");
     		}
 	});
     });	
