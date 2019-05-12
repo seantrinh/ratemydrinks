@@ -2,18 +2,25 @@
 <html lang="en">
 	<head>
 	    <meta charset="utf-8">
-	    <title>{{title}}</title>
+	    <title>RateMyDrinks</title>
 	    <link rel="stylesheet" href="/public/css/site.css">
 	</head>
 	<body>
+		<h1>RateMyDrinks</h1>
+		<nav class="navBar">
 		<table>
 			<tr>
 				{{#if LOGOUT_LINK}}
-				<td><a href="/post_beverage">Create a beverage</a></td>
-				<td><a href="/post_review">Write a review</a></td>
+				<td><a class="navLink" href="/home">Home</a></td>
+				<td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
+				<td><a class="navLink" href="/post_review">Write a review</a></td>
+				{{/if}}
+				{{#if LOGIN_LINK}}
+				<td><a class="navLink" href="/home">Home</a></td>
 				{{/if}}
 			</tr>
 		</table>
+		</nav>
 		<nav class="loginOrLogout">
 			<table>
 				<tr>
@@ -30,7 +37,6 @@
  				</tr>
  		    </table>
 		</nav><br>
-		<h1>{{title}}</h1>
 		<br> 
 		<div>{{{body}}}</div>
 	</body>

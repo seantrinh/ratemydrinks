@@ -1,11 +1,23 @@
 <main>
-    <a href = "/home" > Home </a> <br>
-    <a href = "/beverage/{{beverageRoute}}" > Beverages </a>
+    <nav class="navBar">
+		<table>
+			<tr>
+            <td><a class="navLink" href="/home">Home</a></td>
+            <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
+            <td><a class="navLink" href="/post_review">Write a review</a></td>
+            <td><a class="navLink" href = "/beverage/{{beverageRoute}}" > Go Back </a></td>
+			</tr>
+		</table>
+		</nav>
+    <div>
+    <br>
+    <br>
+    <hr>
     {{#if button}}  
         <form action="/post/delete" method="POST"> 
             <input type="hidden" id="beverage" name="beverage" value="{{beverageRoute}}" />
             <input type="hidden" id="post" name="post" value="{{post._id}}" />
-             <button type="submit">Delete Post</button>
+             <button class="button" type="submit">Delete Post</button>
         </form>
     {{/if}} 
     <h3> Title: {{post.title}} </h3>
@@ -19,7 +31,7 @@
     <div class="formArea">
         <form id="comment_form">
             <label for="content"></label>
-            <textarea name="content" id="content"></textarea> <br>
+            <textarea class="commentArea" name="content" id="content"></textarea> <br>
             <input type= "hidden" id = "post_id" name = 'post_id' value = "{{post._id}}"/>
             <button class="button" type="submit">Submit</button>
         </form>

@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
                         };
 			let result = await beverage.search(body);
 
-			res.render("layouts/search", { heading: "Drinks Found", drinks: result, USERNAME: req.session.user, LOGOUT_LINK: "Logout"});
+			res.render("layouts/search", { heading: "Find A Drink", drinks: result, USERNAME: req.session.user, LOGOUT_LINK: "Logout"});
 		} catch (e) {
 			res.status(400).render('layouts/error', { heading: "400 Error" });
 		}
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
 router.get("/",async(req,res)=>{
 	if(req.session.user){
 		try{
-			res.render("layouts/search", { heading: "Drinks Found",drinks: 5, USERNAME: req.session.user, LOGOUT_LINK: "Logout" });
+			res.render("layouts/search", { heading: "Find A Drink",drinks: 5, USERNAME: req.session.user, LOGOUT_LINK: "Logout" });
         } catch (e) {
                 res.status(400).render('layouts/error', { heading: "400 Error" });
         }

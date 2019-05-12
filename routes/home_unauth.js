@@ -28,7 +28,7 @@ router.get("/", async(req, res) => {
         //      send res the items
 	try {
                 
-                res.render("layouts/search", { heading: "Drinks Found", drinks: 5, LOGIN_LINK :"Login" });
+                res.render("layouts/search", { heading: "Find A Drink", drinks: 5, LOGIN_LINK :"Login" });
         } catch (e) {
                 res.status(400).render('layouts/error', { heading: "400 Error" });
         }
