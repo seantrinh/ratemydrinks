@@ -7,10 +7,21 @@
 	</head>
 	<body>
 		<nav class="loginOrLogout">
-			<a href = "/login_signup">{{LOGIN_LINK}}</a>
- 			<a href = "/logout">{{LOGOUT_LINK}}</a>
- 		    <p>{{USERNAME}}</p>
-		</nav>
+			<table>
+				<tr>
+			{{#if LOGIN_LINK}}
+			<td><a href = "/login_signup">{{LOGIN_LINK}}</a></td>
+			{{/if}}
+			{{#if LOGOUT_LINK}}
+ 			<td><a href = "/logout">{{LOGOUT_LINK}}</a></td>
+ 			{{/if}}
+ 			{{#if USERNAME}}
+ 		    <td><p>Username: {{USERNAME}}</p></td>
+ 		    {{/if}}
+
+ 				</tr>
+ 		    </table>
+		</nav><br>
 		<h1>{{title}}</h1>
 		<br> 
 		<div>{{{body}}}</div>

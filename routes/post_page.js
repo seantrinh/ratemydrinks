@@ -50,8 +50,12 @@ router.put("/:id/:content",async(req,res)=>{
         res.status(404).send({Error: "Not authorized"});
         return;
     }
-
+    try{
     await comments.addComment(req.session.user,req.params.id, req.params.content);
+    } catch(e){
+        console.log(e);
+        res.status(500).send();
+    }
     res.status(202).send();
     return;
 
