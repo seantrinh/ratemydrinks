@@ -38,12 +38,14 @@ a {
 label {
 	color: red;
 }
-.button {
+.button, #submit {
 	background-color: green;
 	border: none;
 	color: white;
 	text-align: center;
 	display: inline-block;
+	width:60px;
+	height:30px;
 }
 
 .loginOrLogout a{
