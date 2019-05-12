@@ -13,11 +13,10 @@ router.post("/", async(req,res) => {
     else {
 	let type = req.body.type;
 	let subtype = req.body.subtype;
-	let tastes = req.body.tastes;
+	let tastes = req.body.tastes.split("\r\n");
 	let name = req.body.name;
 	let company = req.body.company;
         try {
-
 		await beverage.createBeverage(type, subtype, tastes, name, company); //Needs to be an array
         }
         catch(e){
