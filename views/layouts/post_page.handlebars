@@ -27,10 +27,7 @@
         <ul>
             {{#each comments}}
                 <li id="comments">
-                    <div>
-                        USER: {{this.user_id}} <br>
-                        CONTENT: {{this.content}} <br>
-                    </div>
+			{{this.user_id}}: {{this.content}}
                 </li>
             {{/each}}
         </ul>

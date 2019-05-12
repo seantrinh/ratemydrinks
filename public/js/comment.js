@@ -5,6 +5,7 @@ function addComment() {
 	const content = document.getElementById("content").value;
 	let new_li = document.createElement("li");
 	if (content) {
+		let user 
 		let text_node = document.createTextNode(content);
 		new_li.appendChild(text_node);
 		new_li.setAttribute("class","comment");
