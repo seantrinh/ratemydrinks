@@ -117,6 +117,7 @@ const createBeverage = async (type, subtype, tastes, name, company) => {
   return insertInfo.insertedId;
 }
 
+
 /**
  * Finds all beverages that correspond to search parameters. (Matches >= for ratings).
  * 
@@ -134,8 +135,17 @@ const search = async (searchJSON) => {
   if (typeof searchJSON !== 'object') {
     throw "Beverages: searchJSON must be an object";
   }
+  console.log('before')
+  console.log(searchJSON);
+
   // Remove all undefined fields.
-  Object.keys(searchJSON).forEach(key => searchJSON[key] === undefined && delete searchJSON[key]);
+  Object.keys(searchJSON).forEach(key => 
+    (searchJSON[key] === undefined 
+      || searchJSON[key] === ''
+      || JSON.stringify(searchJSON[key]) === '[]'
+      || JSON.stringify(searchJSON[key]) === '[""]'
+      || searchJSON[key] === NaN)
+    && delete searchJSON[key]);
 
   if (searchJSON.tastes) {
     searchJSON.tastes = { $in: searchJSON.tastes };
@@ -148,6 +158,8 @@ const search = async (searchJSON) => {
   else {
     searchJSON.rating =  { $gte: 0 };
   }
+  console.log('after')
+  console.log(searchJSON);
 
   const beverages = await beverageData();
   const matchCursor = await beverages.find(searchJSON, true);
