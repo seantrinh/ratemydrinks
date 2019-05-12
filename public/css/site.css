@@ -116,3 +116,20 @@ label {
 	width: 500px;
 	height: 150px;
 }
+
+.bevLabel {
+	font-size: 16pt;
+	padding-bottom: 10px;
+	text-decoration: underline;
+}
+
+.bevDesc {
+	font-size: 14pt;
+	color: green;
+	font-weight: bold;
+}
+
+.bevPostLink {
+	font-size: 14pt;
+	padding-bottom: 10px;
+}

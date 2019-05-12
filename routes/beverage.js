@@ -4,6 +4,17 @@ const path = require("path");
 const beverage = require("../data").beverage;
 const posts = require("../data").posts;
 
+const tastesToString = (tastes) => {
+  let output = "";
+  for (let i = 0; i < tastes.length; i++) {
+    output += ' ' + tastes[i];
+    if (i < tastes.length - 1) {
+      output += ','
+    }
+  }
+  return output;
+}
+
 router.get("/:id", async (req, res) => {
   //Id of the specific drink
   const bvgId = req.params.id;
@@ -19,7 +30,8 @@ router.get("/:id", async (req, res) => {
         title: post.title
       }
     });
-
+    console.log(tastesToString(currentBvg.tastes))
+    currentBvg.tastes = tastesToString(currentBvg.tastes);
     const data = {
       Beverage: currentBvg,
       Posts: postInfo

@@ -12,16 +12,28 @@
     <br>
     <br>
     <hr>
-    <h2>Beverage's Name: {{Beverage.name}}</h1> 
-    <h2>Beverage's Rating: {{Beverage.rating}}</h1>
+    <h2>Beverage {{Beverage.name}}</h2> 
+    <dl>
+        <dt class="bevLabel">Type</dt>
+        <dd class="bevDesc">{{Beverage.type}}</dd>
+        <dt class="bevLabel">Subtype</dt>
+        <dd class="bevDesc">{{Beverage.subtype}}</dd>
+        <dt class="bevLabel">Company</dt>
+        <dd class="bevDesc">{{Beverage.company}}</dd>
+        <dt class="bevLabel">Tastes</dt>
+        <dd class="bevDesc">{{Beverage.tastes}}</dd>
+        <dt class="bevLabel">Rating</dt>
+        <dd class="bevDesc">{{Beverage.rating}}</dd>
+    </dl>
     {{!-- <p>{{Beverage.ratingCount}}</p> --}}
     </div>
     
     <div>
+        <h2>Posts about {{Beverage.name}}</h2>
         <ol>
             {{#if Posts}}
                 {{#each Posts}}
-                    <li>{{this.author}}: <a href="../post/{{this.id}}">{{this.title}}</a> </li>
+                    <li class="bevPostLink">{{this.author}}: <a href="../post/{{this.id}}">{{this.title}}</a> </li>
                 {{/each}}   
             {{else}}
                 <p>This beverage has no posts.</p>
