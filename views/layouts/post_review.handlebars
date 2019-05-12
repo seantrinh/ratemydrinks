@@ -2,19 +2,24 @@
     <a href = "/home" > Home </a>
     <form class="form" enctype="multipart/form-data" action="/post_status" method="POST">
         <label for="title" > Title:
-            <input type="text" id="title" name="title" required><br>
+            <input type="text" id="title" name="title" required/><br>
         </label>
         <label for="name" > Beverage Name:
-            <input type="text" id="bid" name="bid" required><br>
+            <input type="text" id="bid" name="bid" list="beverages" autocomplete="off" required/> 
+            <datalist id="beverages"><br>
+                {{#each beverages}}
+                    <option value="{{this.name}}"> {{this.name}} </option>
+                {{/each}}
+            </datalist>
         </label>
         <label for="image"> Image:
-            <input type="file" accept="images/*" name="image" required>    
+            <input type="file" accept="images/*" name="image" required/>    
         </label>
         <label for="rating"> Rating:
-            <input type="number" min="0" max="5" name="rating" required>
+            <input type="number" min="0" max="5" name="rating" required/>
         </label>
         <label for="content"> Content:
-            <input type="text" name="content" required> 
+            <input type="text" name="content" required/> 
         </label>
         <button class="button" type="submit"> Submit </button>
     </form>

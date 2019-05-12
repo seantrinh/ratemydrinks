@@ -216,10 +216,17 @@ const updateBeverageRating = async (name, rating) => {
 
 }
 
+const getAllBeverages = async () => {
+  const beverages = await beverageData();
+  let ret = beverages.find({}).toArray();
+  return ret;  
+}
+
 module.exports = {
   createBeverage,
   getBeverageById,
   getBeverageByName,
   updateBeverageRating,
-  search
+  search,
+  getAllBeverages
 };
