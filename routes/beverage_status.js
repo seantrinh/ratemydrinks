@@ -17,11 +17,7 @@ router.post("/", async(req,res) => {
 	let name = req.body.name;
 	let company = req.body.company;
         try {
-		console.log(name);
-		console.log(type);
-		console.log(subtype);
-		console.log(tastes);
-		console.log(company);
+
 		await beverage.createBeverage(type, subtype, tastes, name, company); //Needs to be an array
         }
         catch(e){
