@@ -18,7 +18,8 @@ module.exports = {
             await beverage.getBeverageByName(beverage_id);
         }
         catch(e){
-            throw 'Error: no beverage with this name exists';
+		return 1;
+            //throw 'Error: no beverage with this name exists';
         }
         const postCollection = await posts();
         let new_post = {
