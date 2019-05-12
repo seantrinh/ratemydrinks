@@ -18,13 +18,17 @@ router.get("/:id" , async(req,res) => {
     catch(e){
         res.send("Posts not found");
     }
+    let auth = false;
+    if (req.session.user){
+        auth = true;
+    }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
     let commentArray = await comments.getCommentsWithPid(currentPost._id);
     if (req.session.user !== undefined && req.session.user === currentPost.author_id){
-        res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id} );
+        res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id, auth: auth} );
     }
     else{
-        res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:false, beverageRoute:currentBeverage._id} );
+        res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:false, beverageRoute:currentBeverage._id , auth:auth} );
     }
 });
 

@@ -18,7 +18,10 @@ const tastesToString = (tastes) => {
 router.get("/:id", async (req, res) => {
   //Id of the specific drink
   const bvgId = req.params.id;
-
+  let auth = false;
+  if (req.session.user){
+    auth = true;
+  }
   try {
     const currentBvg = await beverage.getBeverageById(bvgId);
     const currentBvgPosts = await posts.getPostsWithBeverageName(currentBvg.name);
@@ -34,9 +37,9 @@ router.get("/:id", async (req, res) => {
     currentBvg.tastes = tastesToString(currentBvg.tastes);
     const data = {
       Beverage: currentBvg,
-      Posts: postInfo
-    };
-  
+      Posts: postInfo,
+      auth:auth
+    }; 
     res.render("layouts/beverage", data);
 
   } catch(e){
