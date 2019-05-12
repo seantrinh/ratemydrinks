@@ -26,11 +26,15 @@ router.get("/", async(req, res) => {
         //render a specific layout
         //if search returns items
         //      send res the items
+        let auth = false;
+        if (req.session.user){
+            auth = true;
+        }
 	try {
                 
                 res.render("layouts/search", { heading: "Find A Drink", drinks: 5, LOGIN_LINK :"Login" });
         } catch (e) {
-                res.status(400).render('layouts/error', { heading: "400 Error" });
+                res.status(400).render('layouts/error', { heading: "400 Error", auth:auth });
         }
 
 });
