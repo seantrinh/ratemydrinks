@@ -47,7 +47,7 @@ module.exports = {
 		if (deleteInfo.deletedCount === 0) { throw "Comment not deleted!"; }
 		//Given the name of the user, delete the comment from his/her comments list
 		try {
-			await account.deleteComment(user, cid);
+			await account.deleteComment(user, cid.toString());
 		} catch (e) { throw "The comment could not be removed from the user's comment list"; }
 		
 	},
@@ -58,7 +58,7 @@ module.exports = {
 		const comment_array = await commentCollection.find({}).toArray();
 		for (let i = 0; i < comment_array.length; i++) {
 			const currComment = comment_array[i];
-			const comment = this.getComment(currComment._id);
+			const comment = await this.getComment(currComment._id);
 			if (comment.post_id.toString() === pid.toString()) {
 				let user = comment.user_id;
 				let comment_id = comment._id;

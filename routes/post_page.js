@@ -5,7 +5,7 @@ const posts = data.posts;
 const beverage = data.beverage;
 const comments = data.comments;
 const fs = require('fs').promises;
-
+const ObjectId = require('mongodb').ObjectId;
 router.get("/:id" , async(req,res) => {
     let id = req.params.id;
     if (id === undefined){
@@ -32,6 +32,7 @@ router.post("/delete", async(req,res) => {
     if (req.session.user){
         try{
             await posts.deletePost(req.body.post);
+            await comments.deleteCommentsWithPid(ObjectId(req.body.post));
         }
         catch(e){
             console.log(e);
