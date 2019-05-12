@@ -84,7 +84,7 @@ const getBeverageByName = async (beverageName) => {
  */
 const createBeverage = async (type, subtype, tastes, name, company) => {
   if (!type || !subtype || !tastes || !name || !company) {
-    throw "Beverages: Must provide 5 valid arguments: type, subtype, tastes, rating, name, company";
+    throw "Beverages: Must provide 5 valid arguments: type, subtype, tastes, name, company";
   }
 
   if (typeof type !== 'string' || typeof subtype !== 'string' || !Array.isArray(tastes) || typeof name !== 'string' || typeof company !== 'string') {
