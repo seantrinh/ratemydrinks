@@ -17,7 +17,12 @@ router.post("/", async(req,res) => {
 	let name = req.body.name;
 	let company = req.body.company;
         try {
-		await beverage.createBeverage(type, subtype, tastes, name, company); //Needs to be an array
+		let bev = await beverage.createBeverage(type, subtype, tastes, name, company);
+		if (bev === null) {
+			console.log("Duplicate beverage");
+			res.render('layouts/beverage_status', { error: true });
+			return;
+		}
         }
         catch(e){
                 console.log(e);
