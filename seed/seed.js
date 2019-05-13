@@ -1,16 +1,20 @@
 const postsData = require('../data/posts');
 const commentData = require('../data/comments');
 const beverageData = require("../data/beverage");
-const userData = require("../data/account");
 const comments = require('./commentsSeed.js');
 const posts = require('./postSeed');
 const beverages = require('./beverageSeed');
 const users = require('./userSeed');
+const account = require("../data/collections").account;
 
 const seedUsers = async () => {
+    const accountData = await account();
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
-        await userData.createAccount(user.email, user.screen_name, user.bio, user.password);
+        const insertInfo = await accountData.insertOne(user);
+        if (insertInfo.insertedCount === 0) {
+            console.log(`Seed: User ${user.ScreenName} could not be inserted.`)
+        }
     }
 };
 
@@ -65,12 +69,14 @@ const addBeverages = async () => {
 
 
 (async () => {
+    console.log('Seeding...');
     await addBeverages();
     await seedUsers();
     // console.log("im done");
     // const beverage = await beverageData.getBeverageByName("Poland Spring Water Bottle");
     const postInfo = await seedPosts();
     await addComments(postInfo);
+    console.log('Done!');
     process.exit(0);
 })();
 

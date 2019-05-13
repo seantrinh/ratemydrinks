@@ -7,6 +7,7 @@ Rate My Drinks! CS 546 Final Project
 1. Run the seed to populate the database with pre-configured users, posts, beverages, and comments.
 ```
 npm run seed
+
 ```
 
 2. Run app.js to launch the service
@@ -17,6 +18,19 @@ npm start
 3. Use the following login credentials
 - **Username**: pbarresi
 - **Password**: password
+
+4. Seed users
+- **Username** mikeg67
+- **Password** imacoolguy
+
+- **Username** proudmom1
+- **Password** lovemykids10
+
+- **Username** justcynical12
+- **Password** imdeadinside
+
+- **Username** snob13
+- **Password** highstandards
 
 ## Team Name
 Phil Barresi is a Danger Noodle
