@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const posts = data.posts;
-const beverage = data.beverages;
+const beverage = data.beverage;
 const multer = require('multer');
 const path = require('path');
 const upload = multer({dest: path.join(__dirname , './../public/images')});
@@ -19,23 +19,24 @@ router.post("/", upload.single('image'), async(req,res) => {
         let rating = req.body.rating;
         let content = req.body.content;
         let title = req.body.title;
-        let beverageExists = null;
+        let currentBeverage = null;
         let post = null;
         try{
-            	post = await posts.postReview(content,req.session.user,path,rating,bid,title);
-		if (post === 1) {
-			res.redirect("/post_beverage");
-			return;
-		}
+            post = await posts.postReview(content,req.session.user,path,rating,bid,title);
+            if (post === 1) {
+                res.redirect("/post_beverage");
+                return;
+            }
+            currentBeverage = await beverage.getBeverageByName(bid);
         }
         catch(e){
         	console.log(e);
-            	res.render('layouts/post_status', {error:true});
+            res.render('layouts/post_status', {error:true});
            	console.log("deleting " + path);
-            	await fs.unlink("./public/images/"+ path);
+            await fs.unlink("./public/images/"+ path);
         	return;
         }
-        res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false, USERNAME:req.session.user});
+        res.render('layouts/post_status', {author:post.author_id, beverage:currentBeverage, path:path, content:content, title:title, error:false, USERNAME:req.session.user});
     }
 });
 module.exports = router;

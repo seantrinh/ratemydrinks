@@ -8,7 +8,7 @@
     <h2> Success </h2>
     <h3> Title: {{title}} </h3>
     <h3> Author: {{author}} </h3>
-    <h4> Beverage: {{beverage}}  </h4>
+    <h4> Beverage: <a href = "/beverage/{{beverage._id}}"> {{beverage.name}} </a> </h4>
     <img src="/public/images/{{path}}" alt="Beverage Photo"/> 
     <p> {{content}} </p>
     {{/if}}
