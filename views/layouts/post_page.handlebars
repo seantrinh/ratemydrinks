@@ -1,15 +1,11 @@
 <main>
     <nav class="navBar">
 		<table>
-			<tr>
-            <td><a class="navLink" href="/home">Home</a></td>
-            <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-            <td><a class="navLink" href="/post_review">Write a review</a></td>
+            <tr>
             <td><a class="navLink" href = "/beverage/{{beverageRoute}}" > Go Back </a></td>
 			</tr>
 		</table>
 		</nav>
-    <div>
     <br>
     <br>
     <hr>
@@ -40,7 +36,7 @@
     <div class="commentArea">
         <ul class = "comments_unordered_list">
             {{#each comments}}
-                <li id="comments">
+                <li>
 			{{this.user_id}}: {{this.content}}
                 </li>
             {{/each}}

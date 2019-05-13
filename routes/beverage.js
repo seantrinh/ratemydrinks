@@ -18,10 +18,6 @@ const tastesToString = (tastes) => {
 router.get("/:id", async (req, res) => {
   //Id of the specific drink
   const bvgId = req.params.id;
-  let auth = false;
-  if (req.session.user){
-    auth = true;
-  }
   try {
     const currentBvg = await beverage.getBeverageById(bvgId);
     const currentBvgPosts = await posts.getPostsWithBeverageName(currentBvg.name);
@@ -35,13 +31,19 @@ router.get("/:id", async (req, res) => {
     });
     console.log(tastesToString(currentBvg.tastes))
     currentBvg.tastes = tastesToString(currentBvg.tastes);
-    const data = {
+    let data = {
       Beverage: currentBvg,
-      Posts: postInfo,
-      auth:auth
+      Posts: postInfo
     }; 
+    if (req.session.user){
+      data.auth = true;
+      data.USERNAME= req.session.user;
+    }
+    else{
+      data.auth = false;
+      data.LOGIN = true;
+    }
     res.render("layouts/beverage", data);
-
   } catch(e){
     console.log("Could not find beverage")
     res.redirect("/home")

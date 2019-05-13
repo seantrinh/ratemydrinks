@@ -8,32 +8,33 @@
 	<body>
 		<h1>RateMyDrinks</h1>
 		<nav class="navBar">
+		{{#if USERNAME}}
 		<table>
 			<tr>
-				{{#if LOGOUT_LINK}}
 				<td><a class="navLink" href="/home">Home</a></td>
 				<td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
 				<td><a class="navLink" href="/post_review">Write a review</a></td>
-				{{/if}}
-				{{#if LOGIN_LINK}}
-				<td><a class="navLink" href="/home">Home</a></td>
-				{{/if}}
 			</tr>
 		</table>
+		{{/if}}
+		{{#if LOGIN}}
+		<table>
+			<tr>
+				<td><a class="navLink" href="/home">Home</a></td>
+				</tr>
+		</table>
+		{{/if}}
 		</nav>
 		<nav class="loginOrLogout">
 			<table>
 				<tr>
-			{{#if LOGIN_LINK}}
-			<td><a href = "/login_signup">{{LOGIN_LINK}}</a></td>
+			{{#if LOGIN}}
+			<td><a href = "/login_signup">Login</a></td>
 			{{/if}}
-			{{#if LOGOUT_LINK}}
- 			<td><a href = "/logout">{{LOGOUT_LINK}}</a></td>
- 			{{/if}}
- 			{{#if USERNAME}}
- 		    <td><p>Username: {{USERNAME}}</p></td>
+			{{#if USERNAME}}
+ 			<td><a href = "/logout">Log Out</a></td>
+ 		  <td><p>Username: {{USERNAME}}</p></td>
  		  {{/if}}
-
  				</tr>
  		    </table>
 		</nav><br>

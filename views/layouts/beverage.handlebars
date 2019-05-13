@@ -1,43 +1,32 @@
-<body>
-    <nav class="navBar">
-		<table>
-			<tr>
-            <td><a class="navLink" href="/home">Home</a></td>
-            <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-            <td><a class="navLink" href="/post_review">Write a review</a></td>
-			</tr>
-		</table>
-		</nav>
-    <div>
-    <br>
-    <br>
-    <hr>
-    <h2>{{Beverage.name}}</h2> 
-    <dl>
-        <dt class="bevLabel">Type</dt>
-        <dd class="bevDesc">{{Beverage.type}}</dd>
-        <dt class="bevLabel">Subtype</dt>
-        <dd class="bevDesc">{{Beverage.subtype}}</dd>
-        <dt class="bevLabel">Company</dt>
-        <dd class="bevDesc">{{Beverage.company}}</dd>
-        <dt class="bevLabel">Tastes</dt>
-        <dd class="bevDesc">{{Beverage.tastes}}</dd>
-        <dt class="bevLabel">Rating</dt>
-        <dd class="bevDesc">{{Beverage.rating}}</dd>
-    </dl>
-    {{!-- <p>{{Beverage.ratingCount}}</p> --}}
-    </div>
+<div>
+<hr>
+<h2>{{Beverage.name}}</h2> 
+<dl>
+    <dt class="bevLabel">Type</dt>
+    <dd class="bevDesc">{{Beverage.type}}</dd>
+    <dt class="bevLabel">Subtype</dt>
+    <dd class="bevDesc">{{Beverage.subtype}}</dd>
+    <dt class="bevLabel">Company</dt>
+    <dd class="bevDesc">{{Beverage.company}}</dd>
+    <dt class="bevLabel">Tastes</dt>
+    <dd class="bevDesc">{{Beverage.tastes}}</dd>
+    <dt class="bevLabel">Rating</dt>
+    <dd class="bevDesc">{{Beverage.rating}}</dd>
+</dl>
+{{!-- <p>{{Beverage.ratingCount}}</p> --}}
+</div>
+
+<div>
+    <h2>Posts about {{Beverage.name}}</h2>
     
-    <div>
-        <h2>Posts about {{Beverage.name}}</h2>
-        <ol>
-            {{#if Posts}}
-                {{#each Posts}}
-                    <li class="bevPostLink">{{this.author}}: <a href="../post/{{this.id}}">{{this.title}}</a> </li>
-                {{/each}}   
-            {{else}}
-                <p>This beverage has no posts.</p>
-            {{/if}}
-        </ol>
-    </div>
-</body>
+    {{#if Posts}}
+    <ol>
+        {{#each Posts}}
+            <li class="bevPostLink">{{this.author}}: <a href="../post/{{this.id}}">{{this.title}}</a> </li>
+        {{/each}}   
+   </ol>
+    {{else}}
+     <p>This beverage has no posts.</p>
+    {{/if}}
+
+</div>

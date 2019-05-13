@@ -1,22 +1,11 @@
 <main>
-    <nav class="navBar">
-		<table>
-			<tr>
-            <td><a class="navLink" href="/home">Home</a></td>
-            <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-            <td><a class="navLink" href="/post_review">Write a review</a></td>
-			</tr>
-		</table>
-		</nav>
     <div>
-    <br>
-    <br>
     <hr>
     <form class="form" enctype="multipart/form-data" action="/post_status" method="POST">
         <label for="title" > Title:
             <input type="text" id="title" name="title" required/><br>
         </label>
-        <label for="name" > Beverage Name:
+        <label for="bid" > Beverage Name:
             <input type="text" id="bid" name="bid" list="beverages" autocomplete="off" required/> 
             <datalist id="beverages"><br>
                 {{#each beverages}}
@@ -25,14 +14,15 @@
             </datalist>
         </label>
         <label for="image"> Image:
-            <input type="file" accept="images/*" name="image" required/>    
+            <input id="image" type="file" accept="images/*" name="image" required/>    
         </label>
         <label for="rating"> Rating:
-            <input type="number" min="0" max="5" name="rating" required/>
+            <input id="rating" type="number" min="0" max="5" name="rating" required/>
         </label>
         <label for="content"> Content:
-            <input type="text" name="content" required/> 
+            <input id="content" type="text" name="content" required/> 
         </label>
         <button class="button" type="submit"> Submit </button>
     </form>
+    </div>
 </main>

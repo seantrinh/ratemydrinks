@@ -10,7 +10,7 @@ router.post("/",async (req,res)=>{
 	try{
 		valid = await acc.validate(usr,pass);
 	}catch(e){
-		res.render('layouts/login_signup', { layout:false, login_error:"Incorrect Username or Password"});
+		res.render('layouts/login_signup', { layout:false, login_error:"Incorrect Username or Password" });
 		return;
 	}
 	console.log(valid)

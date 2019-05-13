@@ -11,7 +11,7 @@ router.get("/",async(req,res) => {
         res.redirect("/");
     }
     else{
-        res.render('layouts/post_beverage', {title:'Create a Beverage!'});
+        res.render('layouts/post_beverage', {title:'Create a Beverage!', USERNAME:req.session.user});
     }
 });
 module.exports = router;

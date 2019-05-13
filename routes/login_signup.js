@@ -8,7 +8,7 @@ router.get("/",(req,res)=>{
 		res.redirect("/home");
 		return;
 	}
-	res.render('layouts/login_signup', { layout:false});
+	res.render('layouts/login_signup', { layout:false , USERNAME:false});
 });
 
 router.get("*",(req,res)=>{
