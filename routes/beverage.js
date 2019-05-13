@@ -29,7 +29,6 @@ router.get("/:id", async (req, res) => {
         title: post.title
       }
     });
-    console.log(tastesToString(currentBvg.tastes))
     currentBvg.tastes = tastesToString(currentBvg.tastes);
     let data = {
       Beverage: currentBvg,

@@ -135,8 +135,6 @@ const search = async (searchJSON) => {
   if (typeof searchJSON !== 'object') {
     throw "Beverages: searchJSON must be an object";
   }
-  console.log('before')
-  console.log(searchJSON);
 
   // Remove all undefined fields.
   Object.keys(searchJSON).forEach(key => 
@@ -158,8 +156,7 @@ const search = async (searchJSON) => {
   else {
     searchJSON.rating =  { $gte: 0 };
   }
-  console.log('after')
-  console.log(searchJSON);
+
 
   const beverages = await beverageData();
   const matchCursor = await beverages.find(searchJSON, true);
