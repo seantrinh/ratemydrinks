@@ -19,7 +19,7 @@ npm start
 - **Username**: pbarresi
 - **Password**: password
 
-4. Seed users
+### A Helpful List of Seed Users and their Passwords
 - **Username** mikeg67
 - **Password** imacoolguy
 
