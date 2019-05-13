@@ -27,6 +27,9 @@ router.get("/:id" , async(req,res) => {
     if (req.session.user !== undefined && req.session.user === currentPost.author_id){
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id, auth: auth, USERNAME:req.session.user} );
     }
+    else if (req.session.user){
+        res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:false, beverageRoute:currentBeverage._id , auth:auth, USERNAME:req.session.user} );
+    }
     else{
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:false, beverageRoute:currentBeverage._id , auth:auth, LOGIN:true} );
     }
