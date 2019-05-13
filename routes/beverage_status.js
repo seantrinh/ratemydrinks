@@ -20,16 +20,16 @@ router.post("/", async(req,res) => {
 		let bev = await beverage.createBeverage(type, subtype, tastes, name, company);
 		if (bev === null) {
 			console.log("Duplicate beverage");
-			res.render('layouts/beverage_status', { name: name, error: true });
+			res.render('layouts/beverage_status', { name: name, error: true, USERAUTH: true, USERNAME: req.session.user });
 			return;
 		}
         }
         catch(e){
                 console.log(e);
-                res.render('layouts/beverage_status', { error: true });
+                res.render('layouts/beverage_status', { error: true,  USERAUTH: true, USERNAME: req.session.user });
                 return;
         }
-        res.render('layouts/beverage_status', { name: name, error: false });
+        res.render('layouts/beverage_status', { name: name, error: false, USERAUTH: true, USERNAME: req.session.user });
     }
 });
 module.exports = router;

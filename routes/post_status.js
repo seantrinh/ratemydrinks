@@ -35,7 +35,7 @@ router.post("/", upload.single('image'), async(req,res) => {
             	await fs.unlink("./public/images/"+ path);
         	return;
         }
-        res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false});
+        res.render('layouts/post_status', {author:post.author_id, beverage:bid, path:path, content:content, title:title, error:false,  USERAUTH: true, USERNAME: req.session.user});
     }
 });
 module.exports = router;

@@ -1,14 +1,4 @@
 <main>
-    <nav class="navBar">
-		<table>
-			<tr>
-            <td><a class="navLink" href="/home">Home</a></td>
-            <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-            <td><a class="navLink" href="/post_review">Write a review</a></td>
-			</tr>
-		</table>
-		</nav>
-    <div>
     <br>
     <br>
     <hr>
@@ -17,7 +7,7 @@
     {{else}}
     <a href = "/post_review" > Make Another Review</a>
     <h2> Success </h2>
-    <h3> Title: {{title}} </h2>
+    <h3> Title: {{title}} </h3>
     <h3> Author: {{author}} </h3>
     <h4> Beverage: {{beverage}}  </h4>
     <img src="/public/images/{{path}}" alt="Beverage Photo"/> 

@@ -1,14 +1,4 @@
 <main>
-    <nav class="navBar">
-    <table>
-        <tr>
-		<td><a class="navLink" href="/home">Home</a></td>
-        <td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-        <td><a class="navLink" href="/post_review">Write a review</a></td>
-        </tr>
-    </table>
-    </nav>
-    <div>
     <br>
     <br>
     <hr>
@@ -16,7 +6,7 @@
     <p>Error: Beverage {{name}} already exists. </p>
     {{else}}
     <h2> Success: Beverage Created! </h2>
-    <h3> Name: {{name}} </h2>
+    <h3> Name: {{name}} </h3>
     <a href = "/post_review" > Make A Review About This Beverage!</a>
     {{/if}}
 </main>

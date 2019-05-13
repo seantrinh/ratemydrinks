@@ -15,7 +15,7 @@ router.post("/",async(req,res)=>{
                         };
                         let result = await beverage.search(body);
                        
-                        res.render("layouts/search", { heading: "Drinks Found", drinks: result, LOGIN_LINK :"Login"});
+                        res.render("layouts/search", { heading: "Drinks Found", drinks: result});
         } catch (e) {
                         console.log(`home_unauth search: ${e}`);
                         res.status(400).render('layouts/error', { heading: "400 Error" });
@@ -32,7 +32,7 @@ router.get("/", async(req, res) => {
         }
 	try {
                 
-                res.render("layouts/search", { heading: "Find A Drink", drinks: 5, LOGIN_LINK :"Login" });
+                res.render("layouts/search", { heading: "Find A Drink", drinks: 5});
         } catch (e) {
                 res.status(400).render('layouts/error', { heading: "400 Error", auth:auth });
         }

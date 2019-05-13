@@ -38,8 +38,12 @@ router.get("/:id", async (req, res) => {
     const data = {
       Beverage: currentBvg,
       Posts: postInfo,
-      auth:auth
+      auth:auth, 
     }; 
+    if (req.session.user) {
+      data.USERAUTH = true
+      data.USERNAME = req.session.user
+    }
     res.render("layouts/beverage", data);
 
   } catch(e){

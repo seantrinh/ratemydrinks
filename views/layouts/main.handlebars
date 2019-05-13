@@ -9,22 +9,29 @@
 		<h1>RateMyDrinks</h1>
 		<nav class="navBar">
 		<table>
-			<tr>
-				{{#if LOGOUT_LINK}}
-				<td><a class="navLink" href="/home">Home</a></td>
-				<td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
-				<td><a class="navLink" href="/post_review">Write a review</a></td>
-				{{/if}}
-				{{#if LOGIN_LINK}}
-				<td><a class="navLink" href="/home">Home</a></td>
-				{{/if}}
-			</tr>
+				<tr>
+						{{#if USERAUTH}}
+						<td><a class="navLink" href="/home">Home</a></td>
+						<td><a class="navLink" href="/post_beverage">Create a beverage</a></td>
+						<td><a class="navLink" href="/post_review">Write a review</a></td>
+						{{else}}
+						<td><a class="navLink" href="/home">Home</a></td>
+						{{/if}}
+				</tr>
 		</table>
 		</nav>
 		<nav class="loginOrLogout">
 			<table>
 				<tr>
-			{{#if LOGIN_LINK}}
+					{{#if USERAUTH}}
+					<td><a href = "/logout">Logout</a></td>
+					{{else}}
+					<td><a href = "/login_signup">Login</a></td>
+					{{/if}}
+					{{#if USERNAME}}
+					<td><p>Username: {{USERNAME}}</p></td>
+					{{/if}}
+			{{!-- {{#if LOGIN_LINK}}
 			<td><a href = "/login_signup">{{LOGIN_LINK}}</a></td>
 			{{/if}}
 			{{#if LOGOUT_LINK}}
@@ -32,11 +39,11 @@
  			{{/if}}
  			{{#if USERNAME}}
  		    <td><p>Username: {{USERNAME}}</p></td>
- 		  {{/if}}
-
+ 		   --}}
  				</tr>
  		    </table>
-		</nav><br>
+		</nav>
+		<br>
 		<br> 
 		<div>{{{body}}}</div>
 	</body>

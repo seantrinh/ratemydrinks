@@ -17,7 +17,7 @@ router.get("/",async(req,res) => {
         catch(e){
             throw 'Error : getting all beverages'
         }
-        res.render('layouts/post_review', {title:'Post A Review', beverages:ret});
+        res.render('layouts/post_review', {title:'Post A Review', beverages:ret, USERAUTH: true, USERNAME: req.session.user});
     }
 });
 module.exports = router;
