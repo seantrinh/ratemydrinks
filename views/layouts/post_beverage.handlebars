@@ -1,23 +1,27 @@
-<main>
+<main class="search">
    
     <hr>
-    <form class="form" action="/beverage_status" method="POST">
-        <label for="name" > Name:
-            <input type="text" id="name" name="name" required><br>
-        </label>
-        <label for="type" > Type:
-            <input type="text" id="type" name="type" required><br>
-        </label>
-        <label for="subtype"> Subtype:
-            <input type="text" id="subtype" name="subtype" required>
-        </label>
-        <label for="tastes"> Tastes:
+    <form action="/beverage_status" method="POST">
+        <label for="name" > Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="type" > Type:</label>
+        <input type="text" id="type" name="type" required>
+        <br>
+
+        <label for="subtype"> Subtype:</label>
+        <input type="text" id="subtype" name="subtype" required>
+        <br>
+
+        <label for="tastes"> Tastes:</label>
             <!--<input type="text" id="tastes" name="tastes" required>-->
 	    <textarea name="tastes" id="tastes" required></textarea>
-        </label>
-        <label for="company"> Company:
-            <input type="text" id="company" name="company" required>
-        </label>
+        <br>
+
+        <label for="company"> Company:</label>
+        <input type="text" id="company" name="company" required>
+
         <button class="button" type="submit"> Submit </button>
     </form>
 </main>

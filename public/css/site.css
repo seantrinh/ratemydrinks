@@ -7,6 +7,7 @@ h1 {
 }
 h2 {
 	color: green;
+	font-size: 30px;
 }
 h3 {
 	color: orange;
@@ -25,15 +26,15 @@ img {
 	color: green;
 }
 ul {
-	background: #3399ff;	
+	background: white;
+	border: 2px solid green ;	
 }
 ul li {
-	background: #cce5ff;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 a {
-	color: green;
+	color: blue;
 }
 label {
 	color: red;
@@ -102,6 +103,7 @@ label {
 	border-width: 1px;
 }
 
+
 .navBar {
 	float: left;
 }
@@ -133,3 +135,15 @@ label {
 	font-size: 14pt;
 	padding-bottom: 10px;
 }
+
+.boxed {
+	margin-top: 30px;
+	border: 2px solid green ;
+	background: #c6d8f4;
+}
+
+.boxed2 {
+	margin-top: 30px;
+	border: 2px solid green ;
+	background: white;
+  }

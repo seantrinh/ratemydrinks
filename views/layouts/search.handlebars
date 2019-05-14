@@ -32,12 +32,12 @@
 </form>
 
 <ul>
-	{{#each drinks}}
-	<li>
-	<a href="/beverage/{{this._id}}">{{this.name}}</a><br>
-	
-	</li>
-	{{/each}}
+{{#each drinks}}
+    <li>
+    <a href="/beverage/{{this._id}}">{{this.name}}</a><br>
+
+    </li>
+{{/each}}
 </ul>
 </main>
 {{#unless drinks}}

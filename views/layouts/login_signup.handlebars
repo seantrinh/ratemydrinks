@@ -25,7 +25,7 @@
     <br>
     <br>
     <hr>
-    <main>
+    <main class = "search">
        
         <form id = "login-form" action = "/login" method = "post">
             
@@ -60,28 +60,43 @@
              </table>
        </form>
     </main>
-    <div>
+    <div class ="search">
         <h1>New User? Signup!</h1>
         <form id = "signup-form" action = "/signup" method = "post">
             <table>
                 <tr>
-                <td>
-                    <label for= "username">Username:</label> 
-                    <input type="text" name="username"  id = "username" required>
-                </td>
-                <td>
-                    <label for = "email" >Email:</label>
-                    <input type="email" name="email"  id = "email" required> <br>
-                </td>
-                <td>{{signup_error}}</td>
+                    <th>
+                        <label for= "username">Username:</label> 
+                        <input type="text" name="username"  id = "username" required>
+                    </th>
+                    <th>
+                        <label for = "email" >Email:</label>
+                        <input type="email" name="email"  id = "email" required>
+                    </th>
+                    <th>{{signup_error}}</th>
                 </tr>
-             </table>
-            <label for = "bio">Bio:</label><br>
-            <textarea name="bio"  id = "bio" required>{{bio}}</textarea><br>
-            <label for = 'password' >Password:</label>
-            <input type="password" name="password"  id = "password" required ><br>
-            <input type="submit" value="Login" id = "submit2"><br>
 
+                <tr>
+                    <th>
+                    <label for = "bio">Bio:</label>
+                    <textarea name="bio"  id = "bio" required>{{bio}}</textarea>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <label for = 'password' >Password:</label>
+                        <input type="password" name="password"  id = "password" required >
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <input type="submit" value="Login" id = "submit2">
+                    </th>
+                </tr>
+            
+            </table>
         </form>
 
     </div>

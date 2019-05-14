@@ -1,27 +1,29 @@
-<main>
+<main class="search">
     <div>
     <hr>
-    <form class="form" enctype="multipart/form-data" action="/post_status" method="POST">
-        <label for="title" > Title:
-            <input type="text" id="title" name="title" required/><br>
-        </label>
-        <label for="bid" > Beverage Name:
-            <input type="text" id="bid" name="bid" list="beverages" autocomplete="off" required/> 
-            <datalist id="beverages"><br>
-                {{#each beverages}}
-                    <option value="{{this.name}}"> {{this.name}} </option>
-                {{/each}}
-            </datalist>
-        </label>
-        <label for="image"> Image:
-            <input id="image" type="file" accept="images/*" name="image" required/>    
-        </label>
-        <label for="rating"> Rating:
-            <input id="rating" type="number" min="0" max="5" name="rating" required/>
-        </label>
-        <label for="content"> Content:
-            <input id="content" type="text" name="content" required/> 
-        </label>
+    <form enctype="multipart/form-data" action="/post_status" method="POST">
+        <label for="title" > Title:</label>
+        <input type="text" id="title" name="title" required/>
+        <br>
+
+        <label for="bid" > Beverage Name:</label>
+        <input type="text" id="bid" name="bid" list="beverages" autocomplete="off" required/> 
+        <datalist id="beverages"><br>
+            {{#each beverages}}
+                <option value="{{this.name}}"> {{this.name}} </option>
+            {{/each}}
+        </datalist><br>
+        <label for="image"> Image:</label>
+        <input id="image" type="file" accept="images/*" name="image" required/>    
+        <br>
+
+        <label for="rating"> Rating:</label>
+        <input id="rating" type="number" min="0" max="5" name="rating" required/>
+        <br>
+
+        <label for="content"> Content:</label>
+        <input id="content" type="text" name="content" required/>
+
         <button class="button" type="submit"> Submit </button>
     </form>
     </div>
