@@ -37,9 +37,18 @@
     <div class="commentArea">
         <ul class = "comments_unordered_list">
             {{#each comments}}
-                <li>
-			{{this.user_id}}: {{this.content}}
-                </li>
+                {{#if this.author}}
+                    <li id = "id_{{this._id}}">
+                
+    			{{this.user_id}}: {{this.content}} <button type="button" onClick = "delete_comment('{{this._id}}')">Delete</button>
+                    </li>
+                {{/if}}
+                {{#unless this.author}}
+                    <li>
+                
+                {{this.user_id}}: {{this.content}} 
+                    </li>
+                {{/unless}}
             {{/each}}
         </ul>
     </div>

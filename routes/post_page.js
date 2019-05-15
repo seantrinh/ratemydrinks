@@ -24,10 +24,26 @@ router.get("/:id" , async(req,res) => {
     }
     let currentBeverage = await beverage.getBeverageByName(currentPost.beverage_id);
     let commentArray = await comments.getCommentsWithPid(currentPost._id);
+    var createMapwithReq = function(req) {
+        return function(x){
+            if(x.user_id===req.session.user){
+                x.author = true;
+            }else{
+                x.author = false;
+            }
+         
+            return x;
+        }
+    };
     if (req.session.user !== undefined && req.session.user === currentPost.author_id){
+        commentArray = commentArray.map(createMapwithReq(req));
+        
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:true, beverageRoute:currentBeverage._id, auth: auth, USERNAME:req.session.user,auth:true} );
     }
     else if (req.session.user){
+        commentArray = commentArray.map(createMapwithReq(req));
+        
+        
         res.render('layouts/post_page', {title:"Current Post" ,post:currentPost , comments:commentArray, button:false, beverageRoute:currentBeverage._id , auth:auth, USERNAME:req.session.user,auth:true} );
     }
     else{
@@ -52,20 +68,34 @@ router.post("/delete", async(req,res) => {
     }
 });
 router.put("/:id/:content",async(req,res)=>{
-   
+    let comment_id = null;
     if(!req.session.user){
         res.status(404).send({Error: "Not authorized"});
         return;
     }
     try{
-    await comments.addComment(req.session.user,req.params.id, req.params.content);
+    comment_id = await comments.addComment(req.session.user,req.params.id, req.params.content);
     } catch(e){
         console.log(e);
         res.status(500).send();
     }
-    res.status(202).send();
+    res.status(202).send({comment_id:comment_id._id});
     return;
 
 });
+router.delete("/comment/:id",async(req,res)=>{
+    if(!req.session.user){
+        res.status(404).send({Error: "Not authorized"});
+        return;
+    }
+     try{
+    await comments.deleteComment(req.session.user, req.params.id);
+    } catch(e){
+        console.log(e);
+        res.status(500).send();
+    }
+    res.status(202).send({comment_id:req.params.id});
+
+})
 
 module.exports = router;
