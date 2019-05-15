@@ -23,7 +23,7 @@
    
     <img src="/public/images/{{post.photo_path}}" alt="Beverage Photo"/> 
     <p> {{post.content}} </p>
-    
+    {{#if auth}}
     <div class="formArea">
         <form id="comment_form">
             <label for="content"></label>
@@ -32,6 +32,7 @@
             <button class="button" type="submit">Submit</button>
         </form>
     </div>
+    {{/if}}
 
     <div class="commentArea">
         <ul class = "comments_unordered_list">

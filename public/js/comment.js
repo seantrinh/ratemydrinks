@@ -11,7 +11,9 @@ $(function() {
     		type: 'put',
     		success: function(result) {
     			var content = $('#comment_form').serializeArray();
-        		$('.comments_unordered_list').append("<li>You: "+content[0].value+"</li>");
+                var usr = $('#nav_userName').text().split(" ")[1]
+        		$('.comments_unordered_list').append("<li>"+usr+": "+content[0].value+"</li>");
+                $('#comment_form')[0].reset();
     		}
 	});
     });	
