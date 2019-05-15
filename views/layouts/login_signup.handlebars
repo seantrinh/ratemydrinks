@@ -34,12 +34,8 @@
                     <th>
                         <label for="userName">Username: </label>
                     </th>
-                    <th>
+                    <th colspan="2">
                         <label for="userPassword">Password: </label>
-                    </th>
-                
-                    <th>
-                    
                     </th>
                 </tr>
                 <tr>
@@ -50,12 +46,15 @@
                         <input type="password" name="password"  id = "userPassword" required>
                     </td>
                     <td>
+                    {{#if login_error}}
+                    {{login_error}}
+                    {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
                         <input type="submit" value="Login" id = "submit" ><br>
                     </td>
-                        {{#if login_error}}
-                        <td>{{login_error}}</td>
-                        {{/if}}
-                    
                 </tr>
              </table>
        </form>
@@ -77,21 +76,21 @@
                 </tr>
 
                 <tr>
-                    <th>
+                    <th colspan="3">
                     <label for = "bio">Bio:</label>
                     <textarea name="bio"  id = "bio" required>{{bio}}</textarea>
                     </th>
                 </tr>
 
                 <tr>
-                    <th>
+                    <th colspan="3">
                         <label for = 'password' >Password:</label>
                         <input type="password" name="password"  id = "password" required >
                     </th>
                 </tr>
 
                 <tr>
-                    <th>
+                    <th colspan="3">
                         <input type="submit" value="Login" id = "submit2">
                     </th>
                 </tr>

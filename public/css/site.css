@@ -147,3 +147,7 @@ label {
 	border: 2px solid green ;
 	background: white;
   }
+
+.column1{
+	column-count: 3;
+}
