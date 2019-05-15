@@ -68,11 +68,13 @@
                         <label for= "username">Username:</label> 
                         <input type="text" name="username"  id = "username" required>
                     </th>
+                </tr>
+
+                <tr>
                     <th>
                         <label for = "email" >Email:</label>
                         <input type="email" name="email"  id = "email" required>
                     </th>
-                    <th>{{signup_error}}</th>
                 </tr>
 
                 <tr>
@@ -83,7 +85,7 @@
                 </tr>
 
                 <tr>
-                    <th colspan="3">
+                    <th>
                         <label for = 'password' >Password:</label>
                         <input type="password" name="password"  id = "password" required >
                     </th>
@@ -95,6 +97,9 @@
                     </th>
                 </tr>
             
+                <tr>
+                    <th>{{signup_error}}</th>
+                </tr>
             </table>
         </form>
 
