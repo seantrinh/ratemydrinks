@@ -4,12 +4,21 @@ Rate My Drinks! CS 546 Final Project
 
 ## Instructions
 
-1. Run the seed to populate the database with pre-configured users, posts, beverages, and comments.
+1. Download dependencies
+```
+npm install
+```
+2. Start the database service in another shell
+```
+mongod 
+```
+
+3. Run the seed to populate the database with pre-configured users, posts, beverages, and comments.
 ```
 npm run seed
 ```
 
-2. Run app.js to launch the service
+4. Run app.js to launch the service
 ```
 npm start
 ```
